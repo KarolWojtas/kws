@@ -1,0 +1,20 @@
+{
+    "projectName": "kws",
+    "projectPath": "/home/karol/ReactWorkspace/kws",
+    "defaultEditor": "code",
+    "frontendHandler": {
+        "javascript": "/home/karol/.npm-global/lib/node_modules/@aws-amplify/cli/node_modules/amplify-frontend-javascript"
+    },
+    "javascript": {
+        "framework": "react",
+        "config": {
+            "SourceDir": "src",
+            "DistributionDir": "build",
+            "BuildCommand": "npm run-script build",
+            "StartCommand": "npm run-script start"
+        }
+    },
+    "providers": {
+        "awscloudformation": "/home/karol/.npm-global/lib/node_modules/@aws-amplify/cli/node_modules/amplify-provider-awscloudformation"
+    }
+}

@@ -1,0 +1,37 @@
+.Link{
+    display: block;
+    text-decoration: none;
+    box-sizing: border-box;
+    box-shadow: 1px 2px 2px #222;
+    color: white;
+    padding: 12px;
+    transition: all 500ms;
+    margin: 0px 12px 0 12px;
+}
+.ButtonLink{
+    margin: 0 32px 0 32px!important;
+}
+.Link.active,
+.Link:active,
+.Link:hover{
+    background-color: white;
+    color: #000;
+}
+.Toolbar{
+    padding: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.Menu{
+    display: none!important;
+}
+@media (max-width: 400px ) {
+    .Toolbar{
+        display: none;
+    }
+    .Menu{
+        display: block!important;
+    }
+}

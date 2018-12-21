@@ -1,0 +1,24 @@
+:root {
+    --image-rot-x: 0deg;
+    --image-rot-y: 0deg;
+}
+
+.BannerContainer{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+
+}
+.BannerContent{
+    color: white;
+    transform: rotateX(var(--image-rot-x)) rotateY(var(--image-rot-y))!important;
+    transition: transform 300ms linear;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

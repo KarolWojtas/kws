@@ -1,0 +1,18 @@
+.root{
+    --offsetTop: '0'
+}
+.RootContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.SubcategoryHeader{
+    text-align: center;
+}
+.SubcategoryContainer{
+    display: flex!important;
+    flex-direction: column!important;
+    justify-content: flex-start!important;
+    align-items: center!important;
+}

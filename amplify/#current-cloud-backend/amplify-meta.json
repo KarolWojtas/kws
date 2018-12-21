@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "kws-20181220135225-authRole",
+            "UnauthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "kws-20181220135225-deployment",
+            "UnauthRoleName": "kws-20181220135225-unauthRole",
+            "StackName": "kws-20181220135225",
+            "StackId": "arn:aws:cloudformation:eu-central-1:306375953143:stack/kws-20181220135225/19be6f00-0456-11e9-9af4-02d441bc2b52"
+        }
+    }
+}
