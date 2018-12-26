@@ -1,0 +1,16 @@
+.Root{
+    border: transparent;
+}
+.MainLine{
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: main 2s ease-in-out infinite alternate-reverse;
+}
+@keyframes main{
+    from {
+        stroke-dashoffset: 230;
+      }
+      to {
+        stroke-dashoffset: -80;
+      }
+}

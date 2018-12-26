@@ -2,7 +2,9 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import styles from './MenuCategory.module.css'
 import {I18n} from 'aws-amplify'
-import MenuItem from '../MenuItem/MenuItem'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const menuCategory = React.forwardRef((props, ref) => {
     let items = null
@@ -10,38 +12,64 @@ const menuCategory = React.forwardRef((props, ref) => {
         if(category === 'breakfast'){
             items = props.data.items.map((item, ix) => 
                 <Grid item key={ix} md={6}>
-                    <MenuItem title={I18n.get(item.title)} subtitle={I18n.get(item.description)} price={item.price}>
-                    {item.list.map((subitem, sIx) => <p key={sIx}>{`${sIx+1}. ${I18n.get(subitem)}`}</p>)}
-                    </MenuItem>
+                    <List>
+                        <ListItem>
+                            <ListItemText
+                                primary={I18n.get(item.title) + ' '+ item.price+' zł'} 
+                                primaryTypographyProps={{variant: 'h6', color: 'secondary'}}
+                                secondary={I18n.get(item.description)}
+                            ></ListItemText>
+                        </ListItem>
+                        {item.list.map((subitem, sIx) => 
+                            <ListItem key={sIx}>
+                                    <ListItemText primary={`${sIx+1}. ${I18n.get(subitem)}`}/>
+                            </ListItem>)}
+                    </List>
+                            
                 </Grid>
                 )
         } else if(category == 'soupSalad' || category == 'drinks'){
             const numberRows = 12/props.data.subCategories.length;
             items = props.data.subCategories.map(cat => 
-            <Grid  item md={numberRows} key={cat.key} className={styles.SubcategoryContainer}>
-                
-                <h3 className={styles.SubcategoryHeader}>{I18n.get(cat.title)}</h3>
-                {cat.items.map((item, ix) => 
-                <MenuItem
-                    title={I18n.get(item.title)} subtitle={I18n.get(item.description)} price={item.price} key={ix}
-                ></MenuItem>)}
-                
+            <Grid  item md={numberRows} key={cat.key}  >
+                <List>
+                    <ListItem>
+                        <ListItemText primary={I18n.get(cat.title)}
+                            primaryTypographyProps={{variant: 'h6', color: 'secondary'}}
+                        />
+                    </ListItem>
+                    {cat.items.map((item, ix) => 
+                        <ListItem key={ix}>
+                            <ListItemText primary={I18n.get(item.title)+' '+item.price+'zł'} 
+                                secondary={I18n.get(item.description)}/>
+                        </ListItem>)}
+                </List>
             </Grid>)
         }else if(category == 'season'){
 
         } else {
-            items = props.data.items.map((item, ix) => 
-                <Grid md={12} key={ix} item>
-                    <MenuItem title={I18n.get(item.title)} price={item.price} subtitle={I18n.get(item.description)}></MenuItem>
-                </Grid>
-                )
+            items = (
+                <Grid md={12} item>
+                <List>
+                    {props.data.items.map((item, ix) =>(
+                        <ListItem key={ix}>
+                            <ListItemText primary={I18n.get(item.title)+' '+item.price+' zł'} secondary={I18n.get(item.description)}/>
+                        </ListItem>
+                    ) )}
+                </List>
+            </Grid>
+            )
         }
 
     return (
         <div className={styles.RootContainer} ref={ref}>
-            <h3>{I18n.get(props.data.categoryTitle)}</h3>
-            <h5>{I18n.get(props.data.categorySubtitle)}</h5>
-            
+            <List>
+                <ListItem>
+                    <ListItemText primary={I18n.get(props.data.categoryTitle)} 
+                        primaryTypographyProps={{variant: 'h4', color:'secondary'}}
+                        secondary={I18n.get(props.data.categorySubtitle)}/>
+                </ListItem>
+            </List>    
             <Grid container direction={window.matchMedia('(max-width: 800px)').matches ? 'column' : 'row'} alignContent='center'>
                     {items}
             </Grid>

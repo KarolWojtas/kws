@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid'
 import styles from './MainPage.module.css'
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent'
-import pastaImage from '../../assets/pasta-vert-og.jpg'
 import { I18n } from 'aws-amplify';
 
 const ListWrapper = posed.div({
@@ -22,7 +21,8 @@ const ListItem = posed.div({
 		height: '100%',
 		width: 'auto',
 		filter: 'blur(0px) brightness(100%)',
-		backgroundImage: `url(${pastaImage})`
+		backgroundColor: 'grey'
+		//backgroundImage: `url(${pastaImage})`
 	},
 	press: {
 		scale: 0.9
@@ -32,7 +32,6 @@ const ListItem = posed.div({
 		zIndex: 0,
 		height: '100%',
 		width: 'auto',
-		backgroundImage: `url(${pastaImage})`,
 		filter: 'blur(4px) brightness(50%)'
 	}
 })

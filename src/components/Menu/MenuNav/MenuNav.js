@@ -50,6 +50,7 @@ class MenuNav extends Component{
                     <Button
                     size='large'
                     variant={'contained'}
+                    color='secondary'
                     onClick={this.handleOpenMenu}
                 >{I18n.get('MenuNav-menu-button-title')}</Button>
                 

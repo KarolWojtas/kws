@@ -1,0 +1,22 @@
+.Root{
+    border: transparent;
+}
+.MainLine{
+    stroke-dasharray: 320;
+    stroke-dashoffset: 320;
+    animation: main 1.5s ease-in-out infinite alternate;
+}
+@keyframes main{
+    0% {
+        stroke-dashoffset: 240;
+        stroke: #FFC107;
+      }
+      50%{
+          
+          stroke: #FF8F00;
+      }
+      100% {
+        stroke-dashoffset: -80;
+        stroke: #FFD54F;
+      }
+}

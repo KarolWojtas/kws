@@ -2,6 +2,10 @@ import { I18n } from '@aws-amplify/core';
 
 export const dict = {
     'pl':{
+        //Navigation
+        'Navigation-home-btn': 'Strona główna',
+        'Navigation-menu-btn': 'Menu',
+        'Navigation-reservations-btn': 'Rezerwacje',
         //MainPage
         'MainPage-menu-title': 'Menu',
         'MainPage-menu-content': 'Zobacz nasze menu',

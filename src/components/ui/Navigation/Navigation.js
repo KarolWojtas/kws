@@ -13,13 +13,15 @@ import Home from '@material-ui/icons/Home'
 import RestaurantMenu from '@material-ui/icons/RestaurantMenu'
 import {withRouter} from 'react-router-dom'
 import Button from '@material-ui/core/Button'
+import {I18n} from 'aws-amplify'
 
 class Navigation extends Component {
 	state = {
 		dialogOpened: false,
 		links: [
-			{key: 'home', url: '/', text: 'Home', exact: true},
-			{key: 'menu', url: '/menu', text: 'Menu', exact: false}
+			{key: 'home', url: '/', text: I18n.get('Navigation-home-btn'), exact: true},
+			{key: 'menu', url: '/menu', text: I18n.get('Navigation-menu-btn'), exact: false},
+			{key: 'reservations',url: '/', text: I18n.get('Navigation-reservations-btn'), exact: false}
 		]
 	}
 	openDialog = () => {

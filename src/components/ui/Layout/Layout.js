@@ -7,6 +7,9 @@ import logoImage from '../../../assets/logo.png'
 import Navigation from '../Navigation/Navigation'
 import Banner from '../Banner/Banner'
 import posed from 'react-pose'
+import SpinnerNoodle from '../SpinnerNoodle/SpinnerNoodle'
+import SpinnerNoodleAlt from '../SpinnerNoodleAlt/SpinnerNoodleAlt'
+import Typography from '@material-ui/core/Typography'
 
 const LogoContainer = posed.div({
 
@@ -26,16 +29,16 @@ const Layout = props => {
 		</AppBar>
 	)
 
-	if(window.matchMedia('(min-width: 400px)' ).matches && props.location.pathname === '/'){
-		appBar = null;
+	if(window.matchMedia('(min-width: 500px)' ).matches && props.location.pathname === '/'){
+		//appBar = null;
 	}
 	return (
 	<div className={styles.RootContainer}>
 			<Banner>
-				<LogoContainer>
-					<h1>Banner</h1>
-					<h2>Pyszczek piękny</h2>
-				</LogoContainer>
+				<div>
+					<SpinnerNoodle/>
+					<SpinnerNoodleAlt/>
+				</div>
 				<LogoContainer>
 					<img src={logoImage} alt="logo"/>
 				</LogoContainer>
@@ -44,6 +47,7 @@ const Layout = props => {
 		<Grid  component={'div'}>
 			{props.children}
 		</Grid>
+		
 	</div>
 )}
 export default Layout

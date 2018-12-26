@@ -32,7 +32,7 @@
     height: 50vh;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 500px) {
     .Tile{
         height: 500px;
     }
