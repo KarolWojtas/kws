@@ -1,0 +1,11 @@
+.RootContainer{
+    min-width: 400px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border: 2px solid black;
+}
+.Tile{
+    padding: 0!important;
+    margin-bottom: -5px!important;
+    border: 0!important;
+}

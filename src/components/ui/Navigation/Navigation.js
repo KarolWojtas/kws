@@ -21,7 +21,7 @@ class Navigation extends Component {
 		links: [
 			{key: 'home', url: '/', text: I18n.get('Navigation-home-btn'), exact: true},
 			{key: 'menu', url: '/menu', text: I18n.get('Navigation-menu-btn'), exact: false},
-			{key: 'reservations',url: '/', text: I18n.get('Navigation-reservations-btn'), exact: false}
+			{key: 'reservations',url: '/reservations', text: I18n.get('Navigation-reservations-btn'), exact: false}
 		]
 	}
 	openDialog = () => {

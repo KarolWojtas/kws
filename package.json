@@ -4,13 +4,17 @@
   "private": true,
   "dependencies": {
     "@aws-amplify/core": "^1.0.20",
+    "@date-io/date-fns": "0.0.2",
     "@material-ui/core": "^3.6.1",
     "@material-ui/icons": "^3.0.1",
     "aws-amplify": "^1.1.17",
     "axios": "^0.18.0",
+    "date-fns": "^2.0.0-alpha.25",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
+    "material-ui-pickers": "^2.0.4",
     "popmotion": "^8.5.3",
+    "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-pose": "^4.0.2",
@@ -36,5 +40,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "flow-bin": "^0.89.0"
+  }
 }

@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import styles from './MenuPage.module.css'
-import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
 import posed, {PoseGroup} from 'react-pose'
-import {I18n} from 'aws-amplify'
 import MenuCategory from '../../components/Menu/MenuCategory/MenuCategory'
 import MenuNav from '../../components/Menu/MenuNav/MenuNav'
 

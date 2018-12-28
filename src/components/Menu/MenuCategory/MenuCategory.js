@@ -5,6 +5,7 @@ import {I18n} from 'aws-amplify'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import PropTypes from 'prop-types'
 
 const menuCategory = React.forwardRef((props, ref) => {
     let items = null
@@ -28,7 +29,7 @@ const menuCategory = React.forwardRef((props, ref) => {
                             
                 </Grid>
                 )
-        } else if(category == 'soupSalad' || category == 'drinks'){
+        } else if(category === 'soupSalad' || category === 'drinks'){
             const numberRows = 12/props.data.subCategories.length;
             items = props.data.subCategories.map(cat => 
             <Grid  item md={numberRows} key={cat.key}  >
@@ -45,7 +46,7 @@ const menuCategory = React.forwardRef((props, ref) => {
                         </ListItem>)}
                 </List>
             </Grid>)
-        }else if(category == 'season'){
+        }else if(category === 'season'){
 
         } else {
             items = (
@@ -77,4 +78,9 @@ const menuCategory = React.forwardRef((props, ref) => {
         
     )
 })
+menuCategory.propTypes = {
+    category: PropTypes.string,
+    data: PropTypes.object
+}
 export default menuCategory
+

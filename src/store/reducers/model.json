@@ -1,0 +1,11 @@
+{
+    "reservation": {
+        "id": "number",
+        "tables": "Table[]",
+        "date": "Date",
+        "confirmed": "boolean",
+        "created": "Date",
+        "ownerEmail": "string",
+        "confirmationCode": "string"
+    }
+}
