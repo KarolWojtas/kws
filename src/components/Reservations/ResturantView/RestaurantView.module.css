@@ -1,8 +1,9 @@
-.RootContainer{
+.RestaurantView{
     min-width: 400px;
     overflow-x: hidden;
     overflow-y: hidden;
     border: 2px solid black;
+    max-width: 900px;
 }
 .Tile{
     padding: 0!important;

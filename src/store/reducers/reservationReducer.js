@@ -14,6 +14,17 @@ const INITIAL_STATE= {
         {id: 10, seats: 1},
         {id: 11, seats: 1},
     ],
+    openHours: [
+        {open: '09:00', close: '21:00'},
+        {open: '07:00', close: '22:00'},
+        {open: '07:00', close: '22:00'},
+        {open: '07:00', close: '22:00'},
+        {open: '07:00', close: '22:00'},
+        {open: '07:00', close: '23:45'},
+        {open: '09:00', close: '23:45'},
+        
+    ],
+    reservationOffset: 3,
     loadedReservations: [],
     currentReservation: {
         tables: [],
@@ -74,5 +85,6 @@ const removeTableFromReservation = (state, action) => {
         }
     }
 }
+
 
 export default reservationReducer

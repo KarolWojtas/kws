@@ -76,7 +76,7 @@ class RestaurantView extends Component {
                 case EMPTY: return  <Grid key={ix} item xs={2} className={styles.Tile}>{tile.component()}</Grid> 
             }
         })    
-    return  ( <Grid container className={styles.RootContainer} spacing={0}>
+    return  ( <Grid container className={styles.RestaurantView} spacing={0}>
             {tiles}
     </Grid>)
     }

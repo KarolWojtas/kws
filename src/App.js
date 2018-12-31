@@ -9,8 +9,6 @@ import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
-import DateFnsUtils from '@date-io/date-fns'
-import { MuiPickersUtilsProvider } from 'material-ui-pickers';
 
 const RouteContainer = posed.div({
 	init: {
@@ -45,7 +43,6 @@ class App extends Component {
 
 			<MuiThemeProvider theme={theme}>
                 <CssBaseline />
-				<MuiPickersUtilsProvider utils={DateFnsUtils}>
 					<Layout location={this.props.location}>
 						<PoseGroup>
 							<RouteContainer key={this.props.location.key ? this.props.location.key : `${Math.ceil(Math.random() * 1000)}`}>
@@ -56,9 +53,7 @@ class App extends Component {
 								</Switch>
 							</RouteContainer>
 						</PoseGroup>
-				</Layout>
-				</MuiPickersUtilsProvider>
-				
+					</Layout>
 			</MuiThemeProvider>
 		);
 	}

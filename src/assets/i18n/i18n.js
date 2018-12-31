@@ -6,6 +6,15 @@ export const dict = {
         'Navigation-home-btn': 'Strona główna',
         'Navigation-menu-btn': 'Menu',
         'Navigation-reservations-btn': 'Rezerwacje',
+        //ReservationsPage
+        'ReservationsPage-selected-seats-title': 'Liczba miejsc wybranych',
+        'ReservationsPage-selected-date-title': 'Wybierz datę',
+        'ReservationsPage-selected-time-title': 'Wybierz godzinę',
+        'ReservationsPage-calendar-dialog-close': 'Zamknij',
+        'ReservationsPage-finalize-reservation-btn': 'Zarezerwuj',
+        'ReservationsPage-choose-time-placeholder': 'Nie wybrano godziny',
+        'ReservationsPage-choose-seats-placeholder': 'Nie wybrano żadnych miejsc',
+        'ReservationsPage-no-reservations-available': 'Nie można rezerwować już dzisiaj',
         //MainPage
         'MainPage-menu-title': 'Menu',
         'MainPage-menu-content': 'Zobacz nasze menu',
