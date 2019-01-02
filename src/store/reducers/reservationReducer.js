@@ -31,6 +31,7 @@ const INITIAL_STATE= {
         seats: 0,
         date: undefined,
         ownerEmail: undefined,
+        description: undefined,
         created: undefined
     }
 }
@@ -38,7 +39,7 @@ const INITIAL_STATE= {
 const reservationReducer = (state = INITIAL_STATE,action) => {
     switch(action.type){
         case actypes.SET_RESERVATION_DATE: return setCurrentReservationDate(state, action)
-        case actypes.SET_RESERVATION_OWNER_EMAIL: return setCurrentReservationOwnerEmail(state, action)
+        case actypes.SET_RESERVATION_OWNER_EMAIL: return setCurrentReservationOwnerEmailAndDesc(state, action)
         case actypes.ADD_TABLE_TO_RESERVATION: return addTableToReservation(state, action)
         case actypes.REMOVE_TABLE_FROM_RESERVATION: return removeTableFromReservation(state, action)
         default: return state
@@ -53,12 +54,13 @@ const setCurrentReservationDate = (state, action) => {
         }
     }
 }
-const setCurrentReservationOwnerEmail = (state, action) => {
+const setCurrentReservationOwnerEmailAndDesc = (state, action) => {
     return {
         ...state,
         currentReservation: {
             ...state.currentReservation,
-            ownerEmail: action.ownerEmail
+            ownerEmail: action.ownerEmail,
+            description: action.description
         }
     }
 }

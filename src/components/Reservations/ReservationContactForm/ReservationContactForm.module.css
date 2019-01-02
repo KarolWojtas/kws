@@ -1,0 +1,8 @@
+.TextField{
+    margin: 0 0 16px 0!important;
+}
+.SubmitBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

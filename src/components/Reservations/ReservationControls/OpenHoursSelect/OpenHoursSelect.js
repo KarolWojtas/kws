@@ -7,42 +7,19 @@ import {generate} from 'rxjs'
 import {bufferCount} from 'rxjs/operators'
 import {I18n} from 'aws-amplify'
 
-
 const openHoursSelect = props => {
-    const {open, close, offset, isToday, now, selectedDate} = props
     const timeFormatLiteral = 'HH:mm'
-    let closeDate = parse(
-        close,
-        'HH:mm',
-        selectedDate
-    )
-    let startDate = undefined;
-    let noReservations = false
-    if(isToday){
-    const roundedNow = roundToNearestMinutes(now, 30)
-    let roundedUp = isBefore(roundedNow, now) ? addMinutes(roundedNow, 30) : roundedNow;
-    roundedUp = addHours(roundedUp, 3)
-    if(differenceInMinutes(closeDate, roundedUp) < offset * 60){
-        noReservations = true
-    }
-    startDate = roundedUp;
+    const {open, close, offset, isToday, now, selectedDate} = props
+    const startAndEndTime = determineSelectHours(open, close, offset, isToday, now, selectedDate)
 
-    } else {
-        startDate = parse(
-            open,
-            'HH:mm',
-            selectedDate
-        )
-    }
-    if(noReservations){
+    if(!startAndEndTime.start || !startAndEndTime.end){
         return (<List>
             <ListItem><ListItemText primary={I18n.get('ReservationsPage-no-reservations-available')}/></ListItem>
         </List>)
     }
-    closeDate = subMinutes(closeDate, 30);
     let options = null;    
-    generate(startDate, date => isBefore(date, closeDate), date => addMinutes(date, 30)).pipe(
-            bufferCount(1000)
+    generate(startAndEndTime.start, date => isBefore(date, startAndEndTime.end), date => addMinutes(date, 30)).pipe(
+            bufferCount(100)
         ).subscribe(result => options = result.map((date, ix) => (
             <ListItem key={ix} button onClick={() => props.handleSelectTime(date)}>
                 <ListItemText primary={format(date, timeFormatLiteral)}/>
@@ -51,6 +28,42 @@ const openHoursSelect = props => {
     return (<List >
         {options}
     </List>)
+}
+export function determineSelectHours(openHours, closeHours, offsetHours, isToday, nowDate, selectedDate){
+    const timeFormatLiteral = 'HH:mm'
+    let startDate = undefined
+    let closeDate = parse(
+        closeHours,
+        timeFormatLiteral,
+        selectedDate
+    )
+    if(isToday){
+        const roundedNow = roundToNearestMinutes(nowDate, 30)
+        let allowedReservationStart = isBefore(roundedNow, nowDate) ? addMinutes(roundedNow, 30) : roundedNow;
+        allowedReservationStart = addHours(allowedReservationStart, offsetHours)
+
+        if(differenceInMinutes(closeDate, allowedReservationStart) <  30){
+            return {
+                start: undefined,
+                end: undefined
+            }
+        }
+        startDate = allowedReservationStart;
+        return {
+            start: allowedReservationStart,
+            end: subMinutes(closeDate, 30)
+        }
+    } else {
+        startDate = parse(
+                openHours,
+                timeFormatLiteral,
+                selectedDate
+            )
+        return {
+            start: startDate,
+            end: subMinutes(closeDate, 30)
+        }
+    }
 }
 
 export default openHoursSelect

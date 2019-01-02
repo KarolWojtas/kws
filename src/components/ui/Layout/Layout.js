@@ -7,9 +7,6 @@ import logoImage from '../../../assets/logo.png'
 import Navigation from '../Navigation/Navigation'
 import Banner from '../Banner/Banner'
 import posed from 'react-pose'
-import SpinnerNoodle from '../SpinnerNoodle/SpinnerNoodle'
-import SpinnerNoodleAlt from '../SpinnerNoodleAlt/SpinnerNoodleAlt'
-import Typography from '@material-ui/core/Typography'
 
 const LogoContainer = posed.div({
 
@@ -35,10 +32,6 @@ const Layout = props => {
 	return (
 	<div className={styles.RootContainer}>
 			<Banner>
-				<div>
-					<SpinnerNoodle/>
-					<SpinnerNoodleAlt/>
-				</div>
 				<LogoContainer>
 					<img src={logoImage} alt="logo"/>
 				</LogoContainer>

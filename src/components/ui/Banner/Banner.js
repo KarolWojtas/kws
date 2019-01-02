@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import posed, {PoseGroup} from "react-pose";
-import styles from './Banner.module.css'
-import cityImage from '../../../assets/city.jpeg'
+import styles from './Banner.module.css'	
 import {fromEvent, merge} from "rxjs";
-import {map, tap, debounceTime, switchMap, mergeMap} from "rxjs/operators";
+import {map, tap, debounceTime, switchMap} from "rxjs/operators";
 
 const BannerContainer = posed.div({
 	init: {

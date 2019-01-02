@@ -6,10 +6,11 @@ export const  setReservationDate = date => {
         date: date
     }
 }
-export const setReservationOwnerEmail = email => {
+export const setReservationOwnerEmail = (email, description) => {
     return {
         type: actypes.SET_RESERVATION_OWNER_EMAIL,
-        ownerEmail: email
+        ownerEmail: email,
+        description: description
     }
 }
 export const addTableToReservation = tableId => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './WallSeat.module.css'
 import {PoseGroup} from 'react-pose'
-import {Chair, stripesPattern, seatColor, backrestColor, PosedSelectedStyle} from '../SvgUtils'
+import {Chair, stripesPattern, PosedSelectedStyle} from '../SvgUtils'
 const wallSeat = props => {
     let table;
     if(props.top){

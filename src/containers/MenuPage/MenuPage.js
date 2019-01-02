@@ -5,78 +5,6 @@ import posed, {PoseGroup} from 'react-pose'
 import MenuCategory from '../../components/Menu/MenuCategory/MenuCategory'
 import MenuNav from '../../components/Menu/MenuNav/MenuNav'
 
-const PosedMenuCategory = posed(MenuCategory)({
-	init: {
-		opacity: 1,
-	},
-	enter: {
-		opacity: 1,
-		transition: {duration: 400 }
-	},
-	exit: {
-		opacity: 0,
-		transition: {duration: 400, type: 'decay'}
-	}
-})
-class MenuPage extends Component{
-	state = {
-		selectedTab: {
-			tabNumber: 0,
-			tabKey: Object.keys(menu)[0]
-		}
-	}
-	handleSwitchTabWithValue = (event, value) => {
-		this.setState({
-			selectedTab: {
-				tabNumber: value,
-				tabKey: Object.keys(menu)[value]
-			}
-		})
-	}
-	arrayWithPrefix = prefix => {
-		return 
-	}
-	handleSwitchTabWithKey = (key) => {
-
-		this.setState({
-			selectedTab: {
-				tabNumber: Object.keys(menu).findIndex(itemKey => itemKey === key),
-				tabKey: key
-			}
-		})
-	}
-	render(){
-		const tabContents = Object.keys(menu).filter((key, ix) => ix === this.state.selectedTab.tabNumber).map(key => 
-							
-								<PosedMenuCategory 
-								key={key} 
-								category={key}
-								data={menu[key]} 
-							/>
-							
-							)
-	
-		return (
-			<div className={styles.RootContainer} >
-				<Grid container>
-					<Grid item xs={12} className={styles.CenterContent}>
-						<MenuNav
-							menu={menu}
-							handleSwitchTabWithValue={this.handleSwitchTabWithValue}
-							handleSwitchTabWithKey={this.handleSwitchTabWithKey}
-							tabNumber={this.state.selectedTab.tabNumber}
-						/>
-						<PoseGroup>
-						{tabContents}
-						</PoseGroup>
-					</Grid>
-				</Grid>
-			</div>
-		)
-	}
-}
-export default MenuPage
-
 const menu = {
 	breakfast: {
 		categoryTitle: 'MenuPage-breakfast-category-title', 
@@ -146,6 +74,80 @@ const menu = {
 		categoryTitle: 'MenuPage-season-category-title'
 	}
 }
+const PosedMenuCategory = posed(MenuCategory)({
+	init: {
+		opacity: 1,
+	},
+	enter: {
+		opacity: 1,
+		transition: {duration: 400 }
+	},
+	exit: {
+		opacity: 0,
+		transition: {duration: 400, type: 'decay'}
+	}
+})
+
+class MenuPage extends Component{
+	state = {
+		selectedTab: {
+			tabNumber: 0,
+			tabKey: Object.keys(menu)[0]
+		}
+	}
+	handleSwitchTabWithValue = (event, value) => {
+		this.setState({
+			selectedTab: {
+				tabNumber: value,
+				tabKey: Object.keys(menu)[value]
+			}
+		})
+	}
+	arrayWithPrefix = prefix => {
+		return 
+	}
+	handleSwitchTabWithKey = (key) => {
+
+		this.setState({
+			selectedTab: {
+				tabNumber: Object.keys(menu).findIndex(itemKey => itemKey === key),
+				tabKey: key
+			}
+		})
+	}
+	render(){
+		const tabContents = Object.keys(menu).filter((key, ix) => ix === this.state.selectedTab.tabNumber).map(key => 
+							
+								<PosedMenuCategory 
+								key={key} 
+								category={key}
+								data={menu[key]} 
+							/>
+							
+							)
+	
+		return (
+			<div className={styles.RootContainer} >
+				<Grid container>
+					<Grid item xs={12} className={styles.CenterContent}>
+						<MenuNav
+							menu={menu}
+							handleSwitchTabWithValue={this.handleSwitchTabWithValue}
+							handleSwitchTabWithKey={this.handleSwitchTabWithKey}
+							tabNumber={this.state.selectedTab.tabNumber}
+						/>
+						<PoseGroup>
+						{tabContents}
+						</PoseGroup>
+					</Grid>
+				</Grid>
+			</div>
+		)
+	}
+}
+export default MenuPage
+
+
 function generateMenuItems(key, array){
 	return array.map((price, ix) => {
 		return {

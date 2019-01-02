@@ -1,11 +1,10 @@
-.RootContainer{
-    width: 100%;
-    padding:0  16px 16px 16px;
-    background-color: #bbb!important;
-    display: flex;
-    flex-direction: column;
-    
-}
+
 .Calendar{
     background-color: #ccc
+}
+.Icon{
+    margin-right: 16px;
+}
+.GridTile{
+    margin: 8px 0 8px 0!important;
 }

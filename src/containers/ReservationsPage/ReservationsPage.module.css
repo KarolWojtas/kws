@@ -6,15 +6,29 @@
     padding: 16px!important;
 }
 .ReservationControlsContainer{
+    padding: 16px!important;
+    width: 100%
+}
+.CardContent{
+    background-color: #aaa!important;
+    width: 100%!important;
     display: flex!important;
     flex-direction: column!important;
     justify-content: flex-start!important;
-    align-items: center!important;
-    padding: 16px!important;
+    
 }
 @media(max-width: 500px){
     .RestaurantViewContainer{
         flex-direction: column!important;
         justify-content: flex-start!important;
     }
+}
+.Stepper{
+    width: 100%;
+    background-color: #aaa!important;
+}
+.StepHeader{
+    border-bottom: 2px solid #FFC107;
+    display: inline-block!important;
+    margin-bottom: 16px!important; 
 }

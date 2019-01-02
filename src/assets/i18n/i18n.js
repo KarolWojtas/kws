@@ -1,4 +1,3 @@
-import { I18n } from '@aws-amplify/core';
 
 export const dict = {
     'pl':{
@@ -7,14 +6,27 @@ export const dict = {
         'Navigation-menu-btn': 'Menu',
         'Navigation-reservations-btn': 'Rezerwacje',
         //ReservationsPage
-        'ReservationsPage-selected-seats-title': 'Liczba miejsc wybranych',
-        'ReservationsPage-selected-date-title': 'Wybierz datę',
-        'ReservationsPage-selected-time-title': 'Wybierz godzinę',
-        'ReservationsPage-calendar-dialog-close': 'Zamknij',
+        'ReservationsPage-select-date-btn': 'Data',
+        'ReservationsPage-select-time-btn': 'Godzina',
+        'ReservationsPage-date-step-header': 'Wybierz datę i godzinę rezerwacji',
+        'ReservationsPage-contact-step-header': 'Podaj swój email i uwagi do rezerwacji',
+        'ReservationsPage-summary-step-header': 'Oto twoja rezerwacja',
+        'ReservationsPage-contact-step-save-btn': 'Zapisz',
         'ReservationsPage-finalize-reservation-btn': 'Zarezerwuj',
+        'ReservationsPage-calendar-dialog-close': 'Zamknij',
         'ReservationsPage-choose-time-placeholder': 'Nie wybrano godziny',
-        'ReservationsPage-choose-seats-placeholder': 'Nie wybrano żadnych miejsc',
+        'ReservationsPage-summary-seats-error': 'Nie wybrano żadnych miejsc',
+        'ReservationsPage-summary-seats-label': 'Liczba wybranych miejsc',
+        'ReservationsPage-summary-date-label': 'Data i godzina',
+        'ReservationsPage-summary-email-label': 'Email',
+        'ReservationsPage-summary-description-label': 'Opis',
         'ReservationsPage-no-reservations-available': 'Nie można rezerwować już dzisiaj',
+        'ReservationsPage-form-next-btn': 'Dalej',
+        'ReservationsPage-form-back-btn': 'Wróć',
+        'ReservationsPage-form-contact-email-label': 'Podaj adres email',
+        'ReservationsPage-form-contact-description-label': 'Uwagi do rezerwacji',
+        'ReservationsPage-view-alt': 'Wybierz datę i czas aby załadować widok sali',
+
         //MainPage
         'MainPage-menu-title': 'Menu',
         'MainPage-menu-content': 'Zobacz nasze menu',

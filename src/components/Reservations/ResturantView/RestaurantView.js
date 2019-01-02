@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import ButtonBase from '@material-ui/core/ButtonBase/ButtonBase'
 import Grid from '@material-ui/core/Grid'
 import WindowSeat from './RestaurantViewComponents/WindowSeats/WindowSeat'
 import EmptyTile from './RestaurantViewComponents/EmptyTile'
@@ -73,7 +72,8 @@ class RestaurantView extends Component {
                         disabled: isDisabled,
                         selected: this.props.tablesSelected.includes(tile.tableId) ? true : false
                     })}</Grid>
-                case EMPTY: return  <Grid key={ix} item xs={2} className={styles.Tile}>{tile.component()}</Grid> 
+                case EMPTY: return  <Grid key={ix} item xs={2} className={styles.Tile}>{tile.component()}</Grid>
+                default: return null 
             }
         })    
     return  ( <Grid container className={styles.RestaurantView} spacing={0}>
