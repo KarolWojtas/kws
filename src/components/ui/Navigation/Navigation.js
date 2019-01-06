@@ -4,6 +4,7 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import styles from './Navigation.module.css'
 import Menu from '@material-ui/icons/Menu'
+import DateRange from '@material-ui/icons/DateRange'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -50,6 +51,7 @@ class Navigation extends Component {
 		switch (key) {
 			case 'home': return <Home/>;
 			case 'menu': return <RestaurantMenu/>;
+			case 'reservations': return <DateRange/>;
 			default: return <Home/>;
 		}
 	}
@@ -58,13 +60,8 @@ class Navigation extends Component {
 			<>
 				<div className={styles.Toolbar}>
 					{this.state.links.map(item => (
-						/* <NavLink className={styles.Link} activeClassName={styles.active}
-						         exact={item.exact} to={item.url}
-						         key={item.key}
-						>
-							{item.text}
-						</NavLink> */
 						<Button
+						className={styles.Button}
 							size='large'
 							variant={item.url === this.props.location.pathname ? 'outlined' : 'text'}
 							key={item.key}

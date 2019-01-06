@@ -13,6 +13,7 @@ import {format} from 'date-fns'
 import Grid from '@material-ui/core/Grid'
 import OpenHoursSelect from './OpenHoursSelect/OpenHoursSelect'
 import {isSameDay} from 'date-fns'
+import Typography from '@material-ui/core/Typography'
 
 const reservationControls = React.forwardRef((props, ref) => {
 
@@ -21,9 +22,7 @@ const reservationControls = React.forwardRef((props, ref) => {
     
     return (<div ref={ref}>
             <Grid container justify={'center'} alignItems={'baseline'}>
-                <Grid item sm={6} xs={12} className={styles.GridTile}> 
-                    {format(props.dateValue, 'd/MM/YYYY', {awareOfUnicodeTokens: true}) }
-                </Grid>
+                
                 <Grid item sm={6} xs={12} className={styles.GridTile}> 
                         <Button 
                             variant={'contained'} 
@@ -33,9 +32,11 @@ const reservationControls = React.forwardRef((props, ref) => {
                         </Button>
                 </Grid>
                 <Grid item sm={6} xs={12} className={styles.GridTile}> 
-                    {props.dateTimeValue instanceof Date ? format(props.dateTimeValue, 'HH:mm', 
-                        {awareOfUnicodeTokens: true}) : I18n.get('ReservationsPage-choose-time-placeholder') }
+                    <Typography>
+                        {format(props.dateValue, 'd/MM/YYYY', {awareOfUnicodeTokens: true}) }
+                    </Typography>
                 </Grid>
+                
                 <Grid item sm={6} xs={12} className={styles.GridTile}> 
                     <Button 
                             variant={'contained'} 
@@ -44,6 +45,12 @@ const reservationControls = React.forwardRef((props, ref) => {
                     >
                             <AccessTime className={styles.Icon}/>{I18n.get('ReservationsPage-select-time-btn')}
                     </Button>    
+                </Grid>
+                <Grid item sm={6} xs={12} className={styles.GridTile}> 
+                    <Typography>
+                    {props.dateTimeValue instanceof Date ? format(props.dateTimeValue, 'HH:mm', 
+                        {awareOfUnicodeTokens: true}) : I18n.get('ReservationsPage-choose-time-placeholder') }
+                    </Typography>
                 </Grid>
             </Grid>
             <Dialog 

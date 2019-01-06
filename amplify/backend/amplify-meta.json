@@ -1,14 +1,32 @@
 {
-    "providers": {
-        "awscloudformation": {
-            "AuthRoleName": "kws-20181220135225-authRole",
-            "UnauthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-authRole",
-            "Region": "eu-central-1",
-            "DeploymentBucketName": "kws-20181220135225-deployment",
-            "UnauthRoleName": "kws-20181220135225-unauthRole",
-            "StackName": "kws-20181220135225",
-            "StackId": "arn:aws:cloudformation:eu-central-1:306375953143:stack/kws-20181220135225/19be6f00-0456-11e9-9af4-02d441bc2b52"
-        }
-    }
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "kws-20181220135225-authRole",
+			"UnauthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::306375953143:role/kws-20181220135225-authRole",
+			"Region": "eu-central-1",
+			"DeploymentBucketName": "kws-20181220135225-deployment",
+			"UnauthRoleName": "kws-20181220135225-unauthRole",
+			"StackName": "kws-20181220135225",
+			"StackId": "arn:aws:cloudformation:eu-central-1:306375953143:stack/kws-20181220135225/19be6f00-0456-11e9-9af4-02d441bc2b52"
+		}
+	},
+	"hosting": {
+		"S3AndCloudFront": {
+			"service": "S3AndCloudFront",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/kws-20181220135225-deployment/amplify-cfn-templates/hosting/template.json",
+				"logicalId": "hostingS3AndCloudFront"
+			},
+			"lastPushTimeStamp": "2019-01-02T19:03:47.061Z",
+			"output": {
+				"S3BucketSecureURL": "https://kws-20190102200211-hostingbucket.s3.amazonaws.com",
+				"WebsiteURL": "http://kws-20190102200211-hostingbucket.s3-website.eu-central-1.amazonaws.com",
+				"Region": "eu-central-1",
+				"HostingBucketName": "kws-20190102200211-hostingbucket"
+			},
+			"lastPushDirHash": "Ks2V9Rb4RkXomV3Wc8Csi884XiE="
+		}
+	}
 }

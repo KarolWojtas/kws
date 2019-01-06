@@ -42,7 +42,7 @@ const menu = {
 			{
 				key: 'salads',
 				title: 'MenuPage-salads-category-title',
-				items: generateMenuItems('salads', [16, ' '])
+				items: generateMenuItems('salads', [16, 0])
 			}
 		]
 	},

@@ -2,13 +2,14 @@ import React, {Component} from 'react';
 import {Route, Switch, withRouter} from "react-router-dom";
 import Layout from './components/ui/Layout/Layout'
 import {MuiThemeProvider, CssBaseline} from "@material-ui/core";
-import theme from './theme/DarkTheme'
+import theme from './theme/MainTheme'
 import MainPage from './containers/MainPage/MainPage'
 import MenuPage from './containers/MenuPage/MenuPage'
 import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
+
 
 const RouteContainer = posed.div({
 	init: {
@@ -37,13 +38,15 @@ class App extends Component {
 	componentWillMount(){
 		I18n.setLanguage('pl')
 		I18n.putVocabularies( dict);
+		
 	}
+
 	render() {
 		return (
 
 			<MuiThemeProvider theme={theme}>
                 <CssBaseline />
-					<Layout location={this.props.location}>
+					<Layout>
 						<PoseGroup>
 							<RouteContainer key={this.props.location.key ? this.props.location.key : `${Math.ceil(Math.random() * 1000)}`}>
 								<Switch>

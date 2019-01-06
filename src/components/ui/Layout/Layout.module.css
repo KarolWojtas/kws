@@ -8,13 +8,19 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    
 }
-.Footer{
-    width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
+.BrandImage{
+    border-radius: 100%;
+    box-shadow: 4px 4px 4px #ccc;
+}
+
+.Content{
+    padding-top: 32px;
+}
+.Sticky{
+    position: fixed!important;
+    top: 0!important;
+}
+.AddPadding{
+    padding-top: 60px;
 }

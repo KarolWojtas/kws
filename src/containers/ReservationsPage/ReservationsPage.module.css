@@ -3,15 +3,21 @@
     display: flex!important;
     flex-direction: row!important;
     justify-content: center!important;
-    padding: 16px!important;
+    width: 100%!important;
+    margin-top: 8px!important;
 }
 .ReservationControlsContainer{
     padding: 16px!important;
-    width: 100%
+    display: flex!important;
+    flex-direction: column!important;
+    justify-content: center!important;
+    width: 100%!important;
+    max-width: 700px!important;
 }
 .CardContent{
-    background-color: #aaa!important;
-    width: 100%!important;
+    border: solid 4px #aaa!important;
+    background-color: #ccc!important;
+    height: auto;
     display: flex!important;
     flex-direction: column!important;
     justify-content: flex-start!important;
@@ -25,7 +31,12 @@
 }
 .Stepper{
     width: 100%;
-    background-color: #aaa!important;
+    background-color: #ccc!important;
+}
+.StepHeaderWrapper{
+    display: flex!important;
+    flex-direction: row!important;
+    justify-content: center!important;
 }
 .StepHeader{
     border-bottom: 2px solid #FFC107;

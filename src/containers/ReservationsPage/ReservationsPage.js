@@ -55,6 +55,7 @@ class ReservationsPage extends PureComponent{
         this.props.setContactInfo('','')
     }
     handleSetDate = date => {
+        this.handleCloseCalendarDialog()
         this.props.setDateTime(undefined)
         this.setState({
             selectedDate: date,
@@ -99,6 +100,7 @@ class ReservationsPage extends PureComponent{
     };
     handleContactInfo = (values, actions) => {
         actions.setSubmitting(false)
+        this.handleNextStep()
         this.setState({
             email: values.email,
             description: values.description
@@ -179,7 +181,7 @@ class ReservationsPage extends PureComponent{
             restaurantView = <NoTimeRestaurantView />
         }
         return ( <Grid container justify={'center'}>
-            <Grid item md={4} className={styles.ReservationControlsContainer}>
+            <Grid item lg={8} className={styles.ReservationControlsContainer}>
                 <Card className={styles.CardContent}>
                     <CardContent>
                         <MobileStepper
@@ -197,20 +199,22 @@ class ReservationsPage extends PureComponent{
                             {I18n.get('ReservationsPage-form-back-btn')}
                             </Button>
                         }
-                        /> 
-                        <Typography 
-                            variant={'h6'} className={styles.StepHeader}>{stepHeaderText}</Typography>
+                        />
+                        <div className={styles.StepHeaderWrapper}>
+                        <Typography variant={'h6'} className={styles.StepHeader}>{stepHeaderText}</Typography>
+                        </div> 
                         <PoseGroup>
                             {step}
                         </PoseGroup>
                     </CardContent>    
-                </Card> 
-                    
+                </Card>
+                <div className={styles.RestaurantViewContainer}>
+                    {restaurantView}    
+                </div> 
+                
                     
             </Grid>
-            <Grid item md={8} className={styles.RestaurantViewContainer}>
-                {restaurantView}
-            </Grid>
+            
         </Grid> )
     }
 }

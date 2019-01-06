@@ -1,0 +1,18 @@
+.RootContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 8px;
+}
+.WithPrice{
+    justify-content: space-between;
+}
+.Header{
+    justify-content: center;
+    margin: 0 8px 0 8px;
+}
+@media(min-width: 900px){
+    .RootContainer{
+        max-width: 50vw;
+    }
+}

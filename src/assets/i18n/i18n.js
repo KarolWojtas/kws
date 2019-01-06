@@ -10,7 +10,7 @@ export const dict = {
         'ReservationsPage-select-time-btn': 'Godzina',
         'ReservationsPage-date-step-header': 'Wybierz datę i godzinę rezerwacji',
         'ReservationsPage-contact-step-header': 'Podaj swój email i uwagi do rezerwacji',
-        'ReservationsPage-summary-step-header': 'Oto twoja rezerwacja',
+        'ReservationsPage-summary-step-header': 'Twoja rezerwacja',
         'ReservationsPage-contact-step-save-btn': 'Zapisz',
         'ReservationsPage-finalize-reservation-btn': 'Zarezerwuj',
         'ReservationsPage-calendar-dialog-close': 'Zamknij',
@@ -20,6 +20,7 @@ export const dict = {
         'ReservationsPage-summary-date-label': 'Data i godzina',
         'ReservationsPage-summary-email-label': 'Email',
         'ReservationsPage-summary-description-label': 'Opis',
+        'ReservationsPage-summary-description-error': 'Brak',
         'ReservationsPage-no-reservations-available': 'Nie można rezerwować już dzisiaj',
         'ReservationsPage-form-next-btn': 'Dalej',
         'ReservationsPage-form-back-btn': 'Wróć',
@@ -130,7 +131,7 @@ export const dict = {
         'MenuPage-coffee-5-description':' ',
         
         //MenuNav
-        'MenuNav-menu-button-title': 'Wybierz kategorię'
+        'MenuNav-menu-button-title': 'Kategorie'
     },
     'en':{
         'MainPage-menu-title': 'Menu',
