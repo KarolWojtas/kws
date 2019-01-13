@@ -16,6 +16,9 @@ import ReservationContactForm from '../../components/Reservations/ReservationCon
 import ReservationSummary from '../../components/Reservations/ReservationSummary/ReservationSummary'
 import {format} from 'date-fns'
 import NoTimeRestaurantView from '../../components/Reservations/RestaurantViewPlaceHolders/NoTimeSelectedView'
+import { STATUS_SUBMIT_SUCCESS} from '../../store/reducers/reservationReducer'
+import ReCAPTCHA from "react-google-recaptcha";
+
 const stepTransitions = {
     enter: {
         opacity: 1,
@@ -42,18 +45,21 @@ class ReservationsPage extends PureComponent{
         selectedDateTime: undefined,
         isCalendarDialogOpen: false,
         isTimeSelectDialogOpen: false,
+        isSubmitDialogOpened: false,
         selectedDateOpenHours: undefined,
         activeStep: 0,
         email: '',
         description: ''
     }
+    reCaptchaRef = React.createRef()
+
     componentDidMount(){
         this.handleSetDate(new Date())
     }
     componentWillUnmount = () => {
-        this.props.setDateTime(undefined)
-        this.props.setContactInfo('','')
+        this.props.clearReservation()
     }
+    
     handleSetDate = date => {
         this.handleCloseCalendarDialog()
         this.props.setDateTime(undefined)
@@ -69,6 +75,8 @@ class ReservationsPage extends PureComponent{
             isTimeSelectDialogOpen: false,
         })
         this.props.setDateTime(dateTime)
+        this.props.loadReservations(dateTime)
+        
     }
     handleCloseCalendarDialog = () => {
         this.setState({isCalendarDialogOpen: false})
@@ -79,6 +87,22 @@ class ReservationsPage extends PureComponent{
     handleOpenTimeSelectDialog = () => this.setState({isTimeSelectDialogOpen: true})
 
     handleCloseTimeSelectDialog = () => this.setState({isTimeSelectDialogOpen: false})
+
+    handleOpenSubmitDialog = () => this.setState({isSubmitDialogOpened: true})
+
+    handleCloseSubmitDialog = key => {
+        switch(key){
+            case STATUS_SUBMIT_SUCCESS: {
+                this.setState({isSubmitDialogOpened: false})
+                this.props.clearReservation()
+                this.props.history.push('/reservations')
+                break
+            }
+            default: {
+                this.setState({isSubmitDialogOpened: false})
+            }
+        }
+    }
 
     handleSelectTable = tableId => {
         if(this.props.reservation.tables.includes(tableId)){
@@ -108,6 +132,16 @@ class ReservationsPage extends PureComponent{
         this.props.setContactInfo(values.email, values.description)
 
     }
+    handleSubmitReservation = () => {
+        this.reCaptchaRef.current.execute();
+        this.setState({
+            selectedDateTime: undefined,
+            isSubmitDialogOpened: true
+        })
+        const {tables, date, ownerEmail, description, seats} = this.props.reservation;
+        this.props.postReservationStart(tables, seats, date, ownerEmail, description);
+        
+    }
     canProceed = step => {
         switch(step){
             case 0: return this.props.reservation.date !== undefined
@@ -121,6 +155,13 @@ class ReservationsPage extends PureComponent{
     render(){
         const {activeStep} = this.state
         const {seats, ownerEmail, description, date} = this.props.reservation
+        const captchaEl = (
+            <ReCAPTCHA
+                ref={this.reCaptchaRef} 
+                size="invisible"
+                sitekey={'6LcwUIcUAAAAACnSQfe1L6ZKUD56VO_zMq3CGXRV'}
+            />
+        )
         let step = null
         let stepHeaderText = null
         switch(activeStep){
@@ -165,6 +206,11 @@ class ReservationsPage extends PureComponent{
                     description={description}
                     date={format(date, 'HH:mm d/MM/YYYY', {awareOfUnicodeTokens: true})}
                     canSubmitReservation={() => this.canSubmitReservation(seats, ownerEmail, date)}
+                    handleSubmitReservation={this.handleSubmitReservation}
+                    handleOpenSubmitDialog={this.handleOpenSubmitDialog}
+                    handleCloseSubmitDialog={this.handleCloseSubmitDialog}
+                    submitStatus={this.props.reservationPostStatus}
+                    isDialogOpen={this.state.isSubmitDialogOpened}
                     />)
                 stepHeaderText = I18n.get('ReservationsPage-summary-step-header')
                 break
@@ -175,7 +221,7 @@ class ReservationsPage extends PureComponent{
             handleSelectTable={this.handleSelectTable}
             allTables={this.props.tables}
             tablesSelected={this.props.reservation.tables}
-            tablesReserved={[]}
+            tablesReserved={this.props.loadedReservations.tables}
         />)
         if(!date){
             restaurantView = <NoTimeRestaurantView />
@@ -202,7 +248,8 @@ class ReservationsPage extends PureComponent{
                         />
                         <div className={styles.StepHeaderWrapper}>
                         <Typography variant={'h6'} className={styles.StepHeader}>{stepHeaderText}</Typography>
-                        </div> 
+                        </div>
+                        {captchaEl} 
                         <PoseGroup>
                             {step}
                         </PoseGroup>
@@ -223,6 +270,8 @@ const mapStateToProps = state =>{
         tables: state.tables,
         reservation: state.currentReservation,
         openHours: state.openHours,
+        reservationPostStatus: state.reservationPostStatus,
+        loadedReservations: state.loadedReservations
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -230,7 +279,10 @@ const mapDispatchToProps = dispatch => {
         addTable: tableId => dispatch(creators.addTableToReservation(tableId)),
         removeTable: tableId => dispatch(creators.removeTableFromReservation(tableId)),
         setDateTime: dateTime => dispatch(creators.setReservationDate(dateTime)),
-        setContactInfo: (email, description) => dispatch(creators.setReservationOwnerEmail(email, description))
+        setContactInfo: (email, description) => dispatch(creators.setReservationOwnerEmail(email, description)),
+        postReservationStart: (tables, seats, date, email, description) => dispatch(creators.postReservationEpic(tables, seats, date, email, description)),
+        clearReservation: () => dispatch(creators.clearReservation()),
+        loadReservations: dateTime => dispatch(creators.loadReservationsStart(dateTime)) 
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ReservationsPage)

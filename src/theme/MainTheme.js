@@ -14,7 +14,7 @@ const mainTheme = createMuiTheme({
 	typography: {
 		useNextVariants: true,
 		fontFamily: [
-			'-apple-system','BlinkMacSystemFont',"Amatic SC", "Oswald", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
+			"Amatic SC",'-apple-system','BlinkMacSystemFont', "Oswald", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
 		].join(','),
 		fontSize: 25,
 		fontWeightLight: 500,
@@ -22,7 +22,7 @@ const mainTheme = createMuiTheme({
 		fontWeightMedium: 900,
 		subtitle2:{
 			fontFamily: [
-				'-apple-system','BlinkMacSystemFont', "Open Sans", "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
+				 "Open Sans",'-apple-system','BlinkMacSystemFont', "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
 			].join(','),
 			fontSize: 20
 		}

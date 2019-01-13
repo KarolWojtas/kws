@@ -1,0 +1,22 @@
+.RootContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 32px 16px 32px;
+}
+.IconLoading{
+    color: #1565C0;
+}
+.IconSuccess{
+    color: #558B2F;
+}
+.IconFail{
+    color: #C62828;
+}
+.LoadingWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -10,7 +10,6 @@ import posed from 'react-pose'
 import RootRef from '@material-ui/core/RootRef'
 import {fromEvent} from 'rxjs'
 import {map} from 'rxjs/operators'
-import { ro } from 'date-fns/esm/locale';
 
 const LogoContainer = posed.div({
 
@@ -28,7 +27,6 @@ class Layout extends PureComponent {
 	}
 	componentDidMount(){
 		let offset = this.toolbar.current.offsetTop < 250 ? 294 : this.toolbar.current.offsetTop;
-		console.log(offset)
 		this.scroll$ = fromEvent(document, 'scroll').pipe(
 			map(e => e.target.scrollingElement.scrollTop)
 		).subscribe(e => {

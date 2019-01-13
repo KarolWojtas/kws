@@ -20,7 +20,6 @@ class MenuNav extends Component{
         this.setState({menuButtonTarget: null})
     }
     handleSwitchMenuTabWithKey = key => {
-        console.log(key)
         this.handleCloseMenu()
         this.props.handleSwitchTabWithKey(key)
     }

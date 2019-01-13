@@ -1,4 +1,18 @@
 import * as actypes from '../actions/actionTypes'
+import { postReservationResetStatus } from '../actions/actionCreators';
+
+const emptyReservation = {
+    tables: [],
+    seats: 0,
+    date: undefined,
+    ownerEmail: undefined,
+    description: undefined,
+    created: undefined
+}
+export const STATUS_SUBMIT_IDLE = 'idle'
+export const STATUS_SUBMIT_PENDING = 'pending'
+export const STATUS_SUBMIT_SUCCESS = 'success'
+export const STATUS_SUBMIT_FAIL = 'fail'
 
 const INITIAL_STATE= {
     tables: [
@@ -25,14 +39,15 @@ const INITIAL_STATE= {
         
     ],
     reservationOffset: 3,
-    loadedReservations: [],
+    loadedReservations: {
+        tables: []
+    },
+    reservationPostStatus: {
+        key: STATUS_SUBMIT_IDLE,
+        message: 'idle'
+    },
     currentReservation: {
-        tables: [],
-        seats: 0,
-        date: undefined,
-        ownerEmail: undefined,
-        description: undefined,
-        created: undefined
+        ...emptyReservation
     }
 }
 
@@ -42,6 +57,11 @@ const reservationReducer = (state = INITIAL_STATE,action) => {
         case actypes.SET_RESERVATION_OWNER_EMAIL: return setCurrentReservationOwnerEmailAndDesc(state, action)
         case actypes.ADD_TABLE_TO_RESERVATION: return addTableToReservation(state, action)
         case actypes.REMOVE_TABLE_FROM_RESERVATION: return removeTableFromReservation(state, action)
+        case actypes.CLEAR_RESERVATION: return clearReservation(state, action)
+        case actypes.POST_RESERVATION_SUCCESS: return postReservationSuccess(state, action)
+        case actypes.POST_RESERVATION_FAIL: return postReservationFail(state, action)
+        case actypes.SET_RESERVATION_SUBMIT_STATUS: return setReservtionSubmitStatus(state, action)
+        case actypes.LOAD_RESERVATIONS_RESPONSE: return loadReservationsResponse(state, action)
         default: return state
     }
 }
@@ -85,6 +105,54 @@ const removeTableFromReservation = (state, action) => {
             tables: updatedTables,
             seats: state.currentReservation.seats - state.tables.find(table => table.id === action.tableId).seats
         }
+    }
+}
+const clearReservation = (state, action) => {
+    return {
+        ...state,
+        currentReservation: {
+            ...emptyReservation
+        }
+    }
+}
+const postReservationSuccess = (state, action) => {
+    return {
+        ...state,
+        reservationPostStatus: {
+            key: STATUS_SUBMIT_SUCCESS,
+            message: 'SubmitDialog-submit-success'
+        }
+    }
+}
+const postReservationFail = (state, action) => {
+    return {
+        ...state,
+        reservationPostStatus: {
+            key: STATUS_SUBMIT_FAIL,
+            message: action.error
+        }
+    }
+}
+const setReservtionSubmitStatus = (state, action) => {
+    return {
+        ...state,
+        reservationPostStatus: {
+            key: action.key,
+            message: action.message
+        }
+    }
+}
+const loadReservationsResponse =(state, action) => {
+    return {
+        ...state,
+        currentReservation: {
+            ...state.currentReservation,
+            tables: [],
+            seats: 0,
+        },
+        loadedReservations: {
+            tables: action.tables
+        },
     }
 }
 

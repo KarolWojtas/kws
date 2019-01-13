@@ -27,6 +27,11 @@ export const dict = {
         'ReservationsPage-form-contact-email-label': 'Podaj adres email',
         'ReservationsPage-form-contact-description-label': 'Uwagi do rezerwacji',
         'ReservationsPage-view-alt': 'Wybierz datę i czas aby załadować widok sali',
+        //SubmitDialog
+        'SubmitDialog-submit-success': 'Rezerwacja powiodła się',
+        'SubmitDialog-submit-fail': 'Rezerwacja nie powiodła się',
+        'SubmitDialog-submit-pending': 'Wysyłanie rezerwacji',
+        'SubmitDialog-close-dialog': 'Zamknij',
 
         //MainPage
         'MainPage-menu-title': 'Menu',

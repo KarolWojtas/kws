@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {Route, Switch, withRouter} from "react-router-dom";
 import Layout from './components/ui/Layout/Layout'
 import {MuiThemeProvider, CssBaseline} from "@material-ui/core";
@@ -9,6 +9,7 @@ import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
+import asyncComponent from './components/hoc/asyncComponent/AsyncComponent'
 
 
 const RouteContainer = posed.div({
@@ -33,7 +34,13 @@ const RouteContainer = posed.div({
 		}
 	}
 })
-class App extends Component {
+// const asyncMenu = asyncComponent(() => {
+// 	return import ('./containers/MenuPage/MenuPage')
+// })
+// const asyncReservations = asyncComponent(() => {
+// 	return import ('./containers/ReservationsPage/ReservationsPage')
+// })
+class App extends PureComponent {
 
 	componentWillMount(){
 		I18n.setLanguage('pl')
