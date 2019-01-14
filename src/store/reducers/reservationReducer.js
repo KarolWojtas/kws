@@ -1,5 +1,5 @@
 import * as actypes from '../actions/actionTypes'
-import { postReservationResetStatus } from '../actions/actionCreators';
+
 
 const emptyReservation = {
     tables: [],
@@ -40,6 +40,7 @@ const INITIAL_STATE= {
     ],
     reservationOffset: 3,
     loadedReservations: {
+        status: STATUS_SUBMIT_IDLE,
         tables: []
     },
     reservationPostStatus: {
@@ -62,6 +63,7 @@ const reservationReducer = (state = INITIAL_STATE,action) => {
         case actypes.POST_RESERVATION_FAIL: return postReservationFail(state, action)
         case actypes.SET_RESERVATION_SUBMIT_STATUS: return setReservtionSubmitStatus(state, action)
         case actypes.LOAD_RESERVATIONS_RESPONSE: return loadReservationsResponse(state, action)
+        case actypes.LOAD_RESERVATIONS_STATUS_CHANGE: return loadReservationsStatusChange(state, action)
         default: return state
     }
 }
@@ -151,8 +153,18 @@ const loadReservationsResponse =(state, action) => {
             seats: 0,
         },
         loadedReservations: {
-            tables: action.tables
+            tables: action.tables,
+            status: STATUS_SUBMIT_SUCCESS
         },
+    }
+}
+export const loadReservationsStatusChange = (state, action) => {
+    return {
+        ...state,
+        loadedReservations: {
+            tables: [],
+            status: action.status
+        }
     }
 }
 

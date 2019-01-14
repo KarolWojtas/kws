@@ -9,6 +9,7 @@ import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
+import styles from './App.module.css'
 import asyncComponent from './components/hoc/asyncComponent/AsyncComponent'
 
 
@@ -50,8 +51,8 @@ class App extends PureComponent {
 
 	render() {
 		return (
-
-			<MuiThemeProvider theme={theme}>
+		<div>
+			<MuiThemeProvider theme={theme} >
                 <CssBaseline />
 					<Layout>
 						<PoseGroup>
@@ -63,8 +64,10 @@ class App extends PureComponent {
 								</Switch>
 							</RouteContainer>
 						</PoseGroup>
+						
 					</Layout>
 			</MuiThemeProvider>
+		</div>
 		);
 	}
 }

@@ -65,6 +65,12 @@ export const loadReservationsStart = date => {
         date: date
     }
 }
+export const loadReservationsStatusChange = status => {
+    return {
+        type: actypes.LOAD_RESERVATIONS_STATUS_CHANGE,
+        status: status
+    }
+}
 export const loadReservationsResponse = response => {
     return {
         type: actypes.LOAD_RESERVATIONS_RESPONSE,

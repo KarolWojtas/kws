@@ -6,6 +6,7 @@ import EmptyTile from './RestaurantViewComponents/EmptyTile'
 import styles from './RestaurantView.module.css'
 import WallSeat from './RestaurantViewComponents/WallSeats/WallSeat'
 import CouchSeat from './RestaurantViewComponents/CouchSeats/CouchSeat'
+import RootRef from '@material-ui/core/RootRef';
 
 const EMPTY = 'EMPTY'
 const TABLE = 'TABLE'
@@ -76,9 +77,11 @@ class RestaurantView extends Component {
                 default: return null 
             }
         })    
-    return  ( <Grid container className={styles.RestaurantView} spacing={0}>
+    return  ( <RootRef rootRef={this.props.innerRef}>
+            <Grid container className={styles.RestaurantView} spacing={0}>
             {tiles}
-    </Grid>)
+            </Grid>
+        </RootRef>)
     }
 }
 RestaurantView.propTypes = {
@@ -88,4 +91,4 @@ RestaurantView.propTypes = {
     allTables: PropTypes.array,
     handleSelectTable: PropTypes.func
 }
-export default RestaurantView
+export default React.forwardRef((props, ref) => <RestaurantView {...props} innerRef={ref}/>)

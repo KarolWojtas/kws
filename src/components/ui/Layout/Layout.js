@@ -61,7 +61,6 @@ class Layout extends PureComponent {
 		<Grid  component={'div'} className={styles.Content}>
 			{this.props.children}
 		</Grid>
-		
 	</div>
 )
 	}

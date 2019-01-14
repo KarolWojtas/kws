@@ -35,9 +35,22 @@ const stepTransitions = {
         }
     }
 }
+const viewTransitions = {
+    enter: {
+        opacity: 1
+    }, exit: {
+        opacity: 0,
+        transition: {
+            type: 'decay',
+            duration: 200
+        }
+    }
+}
 const PosedReservationControls = posed(ReservationControls)(stepTransitions)
 const PosedReservationContactForm = posed(ReservationContactForm)(stepTransitions)
 const PosedReservationSummary = posed(ReservationSummary)(stepTransitions)
+const PosedRestaurantView = posed(RestaurantView)(viewTransitions)
+const PosedLoadingView = posed(NoTimeRestaurantView)(viewTransitions)
 
 class ReservationsPage extends PureComponent{
     state = {
@@ -217,14 +230,15 @@ class ReservationsPage extends PureComponent{
             }
             default: step = null
         }
-        let restaurantView = (<RestaurantView
+        let restaurantView = (<PosedRestaurantView
+            key={'restaurantView'}
             handleSelectTable={this.handleSelectTable}
             allTables={this.props.tables}
             tablesSelected={this.props.reservation.tables}
             tablesReserved={this.props.loadedReservations.tables}
         />)
-        if(!date){
-            restaurantView = <NoTimeRestaurantView />
+        if(!date || this.props.loadedReservations.status !== STATUS_SUBMIT_SUCCESS){
+            restaurantView = <PosedLoadingView key={'noTimeRestaurantView'}/>
         }
         return ( <Grid container justify={'center'}>
             <Grid item lg={8} className={styles.ReservationControlsContainer}>
@@ -256,7 +270,9 @@ class ReservationsPage extends PureComponent{
                     </CardContent>    
                 </Card>
                 <div className={styles.RestaurantViewContainer}>
+                    <PoseGroup>
                     {restaurantView}    
+                    </PoseGroup>
                 </div> 
                 
                     
