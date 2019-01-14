@@ -1,0 +1,11 @@
+:root{
+    --border-image-url: ''
+}
+.RootContainer{
+    cursor:auto;
+    border-left: 60px solid;
+    border-image-source: var(--border-image-url);
+    border-image-slice: 0 200;
+    width: 100%;
+    margin-left: 40px;
+}
