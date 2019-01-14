@@ -16,15 +16,15 @@ self.__precacheManifest = [
     "url": "/kws/static/js/runtime~main.a66cce90.js"
   },
   {
-    "revision": "3225a9eb2b2109f8f81b",
-    "url": "/kws/static/js/main.3225a9eb.chunk.js"
+    "revision": "34168453fdd2367bfcce",
+    "url": "/kws/static/js/main.34168453.chunk.js"
   },
   {
     "revision": "db613d1c712c6ec94011",
     "url": "/kws/static/js/1.db613d1c.chunk.js"
   },
   {
-    "revision": "3225a9eb2b2109f8f81b",
+    "revision": "34168453fdd2367bfcce",
     "url": "/kws/static/css/main.e007449f.chunk.css"
   },
   {
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/kws/static/css/1.733b4ffa.chunk.css"
   },
   {
-    "revision": "d675c11aa0266965d3aaefb4171cfb89",
+    "revision": "7db8be64dbe186c07d0c77213e067354",
     "url": "/kws/index.html"
   }
 ];
