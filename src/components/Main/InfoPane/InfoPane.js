@@ -9,9 +9,10 @@ const PosedDiv = posed.div({
         opacity: 1,
         x: 0,
         transition: {
-            transition: 400,
-            stiffness: 50,
+            duration: 200,
             type: 'spring',
+            mass: 0.5,
+            stiffness: 50,
         },
         staggerChildren: 500
     },
@@ -19,9 +20,8 @@ const PosedDiv = posed.div({
         opacity: 0,
         x: ({prevBigger}) =>  prevBigger ? '-200%' : '200%',
         transition: {
-            type: 'decay',
-            stiffness: 50,
-            transition: 200
+            type: 'tween',
+            duration: 100
         }
     }
 })

@@ -17,9 +17,9 @@ class MainPage extends Component {
 		activeStep: 0,
 		prevStep: 0,
 		stepList: [
-			{id: 0, image: floorImg, text: 'srać' , header: 'O nas'},
-			{id: 1, image: pastaImg, text: 'sraać', header: 'Kontakt'},
-			{id: 2, image: pastaImg, text: 'sraaaać', header: 'Dupa'}
+			{id: 0, image: floorImg, text: 'info1' , header: 'O nas'},
+			{id: 1, image: pastaImg, text: 'info2', header: 'Kontakt'},
+			{id: 2, image: pastaImg, text: 'info3', header: 'Other'}
 		]
 	}
 	handleClickNext = () => {
