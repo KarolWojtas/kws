@@ -8,7 +8,7 @@ const mainTheme = createMuiTheme({
 		primary: amber,
 		secondary: blueGrey,
 		background: {
-			default: '#ccc'
+			default: 'transparent'
 		}
 	},
 	typography: {

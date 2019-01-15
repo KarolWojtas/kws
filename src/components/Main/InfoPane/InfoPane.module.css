@@ -3,13 +3,32 @@
 }
 .RootContainer{
     cursor:auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 16px;
+}
+.Text{
+    min-height: 50%;
     border-left: 60px solid;
     border-image-source: var(--border-image-url);
     border-image-slice: 0 200;
+}
+.Header{
     width: 100%;
-    margin-left: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    text-align: start;
+}
+@media(max-width: 900px){
+    .Text{
+        border-left: 30px solid;
+    }
+    .RootContainer{
+        margin-left: 0;
+    }
+    .Header{
+        min-width: 90vw;
+    }
+    
 }

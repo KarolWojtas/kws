@@ -9,7 +9,6 @@ import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
-import styles from './App.module.css'
 import asyncComponent from './components/hoc/asyncComponent/AsyncComponent'
 
 
@@ -35,6 +34,9 @@ const RouteContainer = posed.div({
 		}
 	}
 })
+const amberColor = '#FFC107'
+const lightAmberColor = '#FFECB3'
+const darkAmberColor = '#FF8F00'
 // const asyncMenu = asyncComponent(() => {
 // 	return import ('./containers/MenuPage/MenuPage')
 // })

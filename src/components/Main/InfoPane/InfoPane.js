@@ -20,7 +20,7 @@ const PosedDiv = posed.div({
         opacity: 0,
         x: ({prevBigger}) =>  prevBigger ? '-200%' : '200%',
         transition: {
-            type: 'tween',
+            type: 'decay',
             duration: 100
         }
     }
@@ -50,11 +50,14 @@ const InfoPane = props => {
        <PosedTypography
        key={'header'+info.id}
         variant='h4'
+        align='center'
+        className={styles.Header}
         >{info.header}
         </PosedTypography>
         <PosedTypography
         key={'text'+info.id}
         variant='body1'
+        className={styles.Text}
         >
             {info.text}
         </PosedTypography>     

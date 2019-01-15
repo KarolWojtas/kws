@@ -3,12 +3,13 @@
 }
 
 .RootContainer{
-    background-color:transparent;
-    min-height: 100%!important;
+    min-height: 100vh!important;
     height: 100%!important;
     width: 100%;
     overflow: hidden;
     position: relative;
+    background: 
+        linear-gradient(to bottom right,#666, 10%, #ccc, 90%, #FFECB3)!important;
 }
 .BrandImage{
     border-radius: 100%;
@@ -17,7 +18,7 @@
 
 .Content{
     padding-top: 32px;
-    padding-bottom: 32px;
+    padding-bottom: 60px;
     height: 100%
 }
 .Sticky{
@@ -26,4 +27,15 @@
 }
 .AddPadding{
     padding-top: 60px;
+}
+.Footer{
+    height: 40px;
+    clear: both;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 16px 0 16px;
 }
