@@ -1,5 +1,5 @@
 .Root{
-   animation: rotate 5s infinite linear;
+   display: block;
 }
 @keyframes rotate{
     from{

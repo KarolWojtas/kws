@@ -10,6 +10,14 @@ import floorImg from '../../assets/main_pasta.jpg'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import IconButton from '@material-ui/core/IconButton'
+import borderImg from '../../assets/main_info_border.svg'
+import Penne from '../../components/ui/Icons/Penne/Penne'
+import Farfalle from '../../components/ui/Icons/Farfalle/Farfalle'
+import Ravioli from '../../components/ui/Icons/Ravioli/Ravioli'
+
+const amberColor = '#FFC107'
+const lightAmberColor = '#FFECB3'
+const darkAmberColor = '#FF8F00'
 
 class MainPage extends Component {
 	state ={
@@ -21,6 +29,9 @@ class MainPage extends Component {
 			{id: 1, image: pastaImg, text: 'info2', header: 'Kontakt'},
 			{id: 2, image: pastaImg, text: 'info3', header: 'Other'}
 		]
+	}
+	componentDidMount(){
+		document.documentElement.style.setProperty('--border-image-url', `url(${borderImg})`)
 	}
 	handleClickNext = () => {
 		this.setState((prevState) => 
@@ -46,34 +57,38 @@ class MainPage extends Component {
 		return (
 			<Grid container className={styles.RootContainer}>
 				<Grid item md={6} className={styles.ImagePaneContainer} >
-						
-						<ImagePane
-						index={activeStep}
-						items={stepList}
-						handleChangeIndex={this.handleChangeIndex}
-						/>
-						<MobileStepper 
-						steps={maxSteps}
-						activeStep={activeStep} 
-						position={'static'}
-						nextButton={
-							<IconButton onClick={this.handleClickNext}>
-								<NavigateNext fontSize='large'/>
-							</IconButton>
-						}
-						backButton = {
-							<IconButton onClick={this.handleClickPrev}>
-								<NavigateBefore fontSize='large'/>
-							</IconButton>
-						}
-						/>
-					</Grid>
-					<Grid item md={6} className={styles.InfoPaneContainer}>
-						<InfoPane 
-						prevStep={prevStep}
-						activeStep={activeStep} 
-						stepList={stepList}/>
-					</Grid>	
+				<ImagePane
+					index={activeStep}
+					items={stepList}
+					handleChangeIndex={this.handleChangeIndex}
+					/>
+					<MobileStepper 
+					steps={maxSteps}
+					activeStep={activeStep} 
+					position={'static'}
+					nextButton={
+						<IconButton onClick={this.handleClickNext}>
+							<NavigateNext fontSize='large'/>
+						</IconButton>
+					}
+					backButton = {
+						<IconButton onClick={this.handleClickPrev}>
+							<NavigateBefore fontSize='large'/>
+						</IconButton>
+					}
+					/>			
+				</Grid>
+				<Grid item md={6} className={styles.InfoPaneContainer}>
+					<div className={styles.IconContainer}>
+						<Penne inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
+						<Farfalle inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
+						<Ravioli inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
+					</div>
+					<InfoPane 
+					prevStep={prevStep}
+					activeStep={activeStep} 
+					stepList={stepList}/>
+				</Grid>		
 			</Grid>
 		)
 	}

@@ -12,9 +12,7 @@ import {fromEvent} from 'rxjs'
 import {map} from 'rxjs/operators'
 import Copyright from '@material-ui/icons/Copyright'
 import Typography from '@material-ui/core/Typography'
-import Penne from '../Icons/Penne/Penne'
-import Farfalle from '../Icons/Farfalle/Farfalle'
-import Ravioli from '../Icons/Ravioli/Ravioli'
+
 
 const LogoContainer = posed.div({
 
@@ -25,9 +23,7 @@ const LogoContainer = posed.div({
 		opacity: 0
 	}
 })
-const amberColor = '#FFC107'
-const lightAmberColor = '#FFECB3'
-const darkAmberColor = '#FF8F00'
+
 class Layout extends PureComponent {
 	toolbar = React.createRef();
 	state = {
@@ -61,9 +57,7 @@ class Layout extends PureComponent {
 	return (
 	<div className={rootClasses.join(' ')}>
 		<Banner>
-			<Penne inner={darkAmberColor} outer={amberColor}/>
-			<Farfalle inner={darkAmberColor} outer={amberColor}/>
-			<Ravioli inner={darkAmberColor} outer={amberColor}/>
+			
 			<LogoContainer>
 				<img src={logoImage} alt="logo" className={styles.BrandImage}/>
 			</LogoContainer>

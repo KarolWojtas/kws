@@ -4,6 +4,7 @@ import posed, {PoseGroup} from 'react-pose'
 import styles from './InfoPane.module.css'
 import RootRef from '@material-ui/core/RootRef'
 import borderImg from '../../../assets/main_info_border.svg'
+
 const PosedDiv = posed.div({
     enter: {
         opacity: 1,
@@ -25,6 +26,14 @@ const PosedDiv = posed.div({
         }
     }
 })
+const PosedTextDiv = posed.div({
+    enter: {
+        opacity:1 
+    },
+    exit: {
+        opacity: 0
+    }
+})
 const typographyTransitions = {
     enter: {
         opacity: 1
@@ -38,6 +47,7 @@ const PosedTypography = posed(React.forwardRef((props, ref) => (
         <Typography {...props}>{props.children}</Typography>
     </RootRef>
 )))(typographyTransitions)
+
 const InfoPane = props => {
     document.documentElement.style.setProperty('--border-image-url', `url(${borderImg})`)
     const info = props.stepList[props.activeStep]
@@ -54,13 +64,16 @@ const InfoPane = props => {
         className={styles.Header}
         >{info.header}
         </PosedTypography>
-        <PosedTypography
-        key={'text'+info.id}
-        variant='body1'
-        className={styles.Text}
-        >
-            {info.text}
-        </PosedTypography>     
+        
+        <PosedTextDiv className={styles.TextContainer}>
+            <PosedTypography
+            key={'text'+info.id}
+            variant='body1'
+            className={styles.Text}
+            >
+                {info.text}
+            </PosedTypography>  
+        </PosedTextDiv>   
         
         
     </PosedDiv>
