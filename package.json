@@ -32,8 +32,7 @@
     "rxjs": "^6.3.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -m 'auto commit [ci skip]' -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
