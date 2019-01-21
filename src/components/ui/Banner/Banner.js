@@ -27,7 +27,6 @@ class Banner extends Component {
 
 	bannerRef = React.createRef();
 	componentDidMount() {
-
 		const {clientWidth, clientHeight} = document.documentElement;
 
 		this.touchMove$ =  fromEvent(this.bannerRef.current, 'touchmove', {passive: true}).pipe(

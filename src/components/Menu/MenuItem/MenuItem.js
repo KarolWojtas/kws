@@ -1,32 +1,35 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
-import Chip from '@material-ui/core/Chip';
+import Grid from '@material-ui/core/Grid'
 import styles from './MenuItem.module.css'
+import PriceChip from '../../ui/PriceChip/PriceChip'
 
 const menuItem = props => {
-    let  priceChip
-    const classes = [styles.RootContainer]
+    let classes = styles.RootContainer
     if(props.price && props.price !== 0){
-        priceChip = (<span>
-            <Chip
-            label={`${props.price} zł`}
-            color={'secondary'} 
-            />
-        </span>)
-        classes.push(styles.WithPrice)
+        return (
+            <Grid container className={classes}>
+                <Grid item xs={10}>
+                <Typography {...props.primaryProps}>{props.primary}</Typography>
+                <Typography color={'textSecondary'} {...props.secondaryProps}>{props.secondary}</Typography>
+                </Grid>
+                <Grid item xs={2} className={styles.PriceContainer}>
+                    <PriceChip>{`${props.price} zł`}</PriceChip>        
+                </Grid>
+            </Grid>)
     } else {
-        priceChip = null
+        if(props.header){
+            classes = styles.Header
+        }
+        return (
+            <Grid container className={classes}>
+                <Grid item xs={12}>
+                <Typography {...props.primaryProps}>{props.primary}</Typography>
+                <Typography color={'textSecondary'} {...props.secondaryProps}>{props.secondary}</Typography>
+                </Grid>
+            </Grid>)
     }
-    if(props.header){
-        classes.push(styles.Header)
-    }
-    return (<div className={classes.join(' ')}>
-        <span>
-            <Typography {...props.primaryProps}>{props.primary}</Typography>
-            <Typography color={'textSecondary'} {...props.secondaryProps}>{props.secondary}</Typography>
-        </span>
-        {priceChip}
-    </div>)
+    
 }
 menuItem.defaultProps = {
     primaryProps: {

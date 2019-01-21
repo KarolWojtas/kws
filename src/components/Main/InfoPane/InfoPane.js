@@ -4,6 +4,7 @@ import posed, {PoseGroup} from 'react-pose'
 import styles from './InfoPane.module.css'
 import RootRef from '@material-ui/core/RootRef'
 import borderImg from '../../../assets/main_info_border.svg'
+import SwipeableViews from 'react-swipeable-views';
 
 const PosedDiv = posed.div({
     enter: {
@@ -19,9 +20,9 @@ const PosedDiv = posed.div({
     },
     exit: {
         opacity: 0,
-        x: ({prevBigger}) =>  prevBigger ? '-200%' : '200%',
+        x: ({prevBigger}) =>  prevBigger ? '-50%' : '50%',
         transition: {
-            type: 'decay',
+            type: 'tween',
             duration: 100
         }
     }
@@ -50,38 +51,44 @@ const PosedTypography = posed(React.forwardRef((props, ref) => (
 
 const InfoPane = props => {
     document.documentElement.style.setProperty('--border-image-url', `url(${borderImg})`)
-    const info = props.stepList[props.activeStep]
-    const tile = (
-    <PosedDiv 
-    key={info.id} 
-    className={styles.RootContainer}
-    prevBigger={props.prevStep > props.activeStep}
-    >
-       <PosedTypography
-       key={'header'+info.id}
-        variant='h4'
-        align='center'
-        className={styles.Header}
-        >{info.header}
-        </PosedTypography>
-        
-        <PosedTextDiv className={styles.TextContainer}>
+    
+    const items = props.stepList.map(item => (
+        <PosedTextDiv
+        key={item.id}
+        className={styles.TextContainer}
+        >
             <PosedTypography
-            key={'text'+info.id}
-            variant='body1'
-            className={styles.Text}
-            >
-                {info.text}
-            </PosedTypography>  
-        </PosedTextDiv>   
-        
-        
-    </PosedDiv>
-    )
+                key={'header'+item.id}
+                variant='h4'
+                align='center'
+                color='secondary'   
+                className={styles.Header}
+                >{item.header}
+                </PosedTypography>
+                
+            <PosedTextDiv className={styles.TextContainer}>
+                {item.text.map((paragraph, ix) => (
+                    <PosedTypography
+                    key={'p'+ix}
+                    variant='body1'
+                    className={styles.Text}
+                    >
+                        {paragraph}
+                    </PosedTypography>  
+                ))}   
+            </PosedTextDiv>       
+        </PosedTextDiv>
+    ))
     return (
-        <PoseGroup animateOnMount>
-            {tile}
-        </PoseGroup>
+                <SwipeableViews
+                key={'views'}
+                index={props.activeStep}
+                enableMouseEvents
+                onChangeIndex={props.handleChangeIndex}
+                className={styles.RootContainer}
+                >
+                    {items}
+                </SwipeableViews>
     )
 }
 export default InfoPane

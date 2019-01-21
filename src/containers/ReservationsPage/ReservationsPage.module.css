@@ -11,8 +11,8 @@
     display: flex!important;
     flex-direction: column!important;
     justify-content: center!important;
-    width: 100%!important;
-    max-width: 700px!important;
+    width: 100vw!important;
+    max-width: 900px!important;
 }
 .CardContent{
     border: solid 4px #aaa!important;

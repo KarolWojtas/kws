@@ -6,7 +6,9 @@ const Farfalle = props => {
     return (
         <svg viewBox='0 0 100 100' width='100' height='100' className={styles.Root} 
         className={styles.Root}
-        background={'transparent'}>
+        background={'transparent'}
+        {...props.style}
+        >
             <path
             stroke={props.inner}
             strokeWidth={2}

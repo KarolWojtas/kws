@@ -1,31 +1,24 @@
-:root{
-    --border-image-url: ''
-}
+
 .RootContainer{
+    padding: 8px;
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 16px;
 }
 .TextContainer{
-    width: 100%;
-    height: 100%;
     padding: 16px;
+    overflow-y: hidden;
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
 }
 .Header{
-    width: 100%;
-    text-align: start;
+    border-bottom: 2px solid #FFECB3;
 }
-@media(max-width: 900px){
-    .Header{
-        min-width: 90vw;
-    }
+.Text{
+    padding-bottom: 16px;
+}
+.Text::first-letter{
+    color: #666;
+    font-size: 2.5rem;
 }

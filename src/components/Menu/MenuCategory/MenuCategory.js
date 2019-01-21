@@ -9,6 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PropTypes from 'prop-types'
 import MenuItem from '../MenuItem/MenuItem'
 import ArrowRightSharp from '@material-ui/icons/ArrowRightSharp'
+import Header from '../../ui/Header/Header'
 
 const menuCategory = React.forwardRef((props, ref) => {
     let items = null
@@ -94,11 +95,13 @@ const menuCategory = React.forwardRef((props, ref) => {
 
     return (
         <div className={styles.RootContainer} ref={ref}>
+            <Header>
             <MenuItem
                 primary={I18n.get(props.data.categoryTitle)}
                 secondary={I18n.get(props.data.categorySubtitle)}
-                primaryProps={{variant: 'h4', color:'secondary'}}
-            />    
+                primaryProps={{variant: 'h4', color:'textPrimary'}}
+            />
+            </Header>  
             <Grid container direction={window.matchMedia('(max-width: 800px)').matches ? 'column' : 'row'} alignContent='center'>
                     {items}
             </Grid>

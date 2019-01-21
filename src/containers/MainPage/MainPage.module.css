@@ -2,18 +2,18 @@
     --border-image-url: ''
 }
 .RootContainer{
-    min-height: 100%;
-    margin: 0 16px 0 16px;
+    height: 100%;
+    margin: 0 8px 0 8px;
+    max-width: 70vw;
 }
 .ImagePaneContainer{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-left: 50px solid;
-    border-right: 50px solid;
-    border-image-source: var(--border-image-url);
-    border-image-slice: 0 120;
+    padding: 32px;
+    border-radius: 16px;
+    
 }
 .IconContainer{
     display: flex;
@@ -21,23 +21,26 @@
     justify-content: space-evenly;
     width: 100%;
 }
-
 .InfoPaneContainer{
     display: flex;
     width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding: 0 16px 0 16px;
+    
 }
 @media(max-width: 900px){
     .RootContainer{
         margin: 0;
+        max-width: 100vw;
     }
     .ImagePaneContainer{
-        border-left: 32px solid;
-        border-right: 32px solid;
+        margin: auto;
+        padding: 0;
+       
     }
     .InfoPaneContainer{
-        margin: auto;
+        border-image-width: 32px;
     }
 }

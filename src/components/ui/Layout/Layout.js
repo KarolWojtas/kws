@@ -3,7 +3,8 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import styles from './Layout.module.css'
 import Grid from '@material-ui/core/Grid';
-import logoImage from '../../../assets/logo.png'
+import logoImage from '../../../assets/logo.svg'
+import neonLogoImage from '../../../assets/neon-logo.svg'
 import Navigation from '../Navigation/Navigation'
 import Banner from '../Banner/Banner'
 import posed from 'react-pose'
@@ -12,6 +13,8 @@ import {fromEvent} from 'rxjs'
 import {map} from 'rxjs/operators'
 import Copyright from '@material-ui/icons/Copyright'
 import Typography from '@material-ui/core/Typography'
+import waveBgLg from '../../../assets/wave-bg-lg.svg'
+import waveBgSm from '../../../assets/wave-bg-sm.svg'
 
 
 const LogoContainer = posed.div({
@@ -30,7 +33,11 @@ class Layout extends PureComponent {
 		isSticky: false
 	}
 	componentDidMount(){
-		let offset = this.toolbar.current.offsetTop < 250 ? 294 : this.toolbar.current.offsetTop;
+		document.documentElement.style.setProperty('--wave-bg-lg', `url(${waveBgLg})`)
+		document.documentElement.style.setProperty('--wave-bg-sm', `url(${waveBgSm})`)
+
+		let offset = this.toolbar.current.offsetTop < 250 ? 300 : this.toolbar.current.offsetTop;
+		console.log(offset)
 		this.scroll$ = fromEvent(document, 'scroll').pipe(
 			map(e => e.target.scrollingElement.scrollTop)
 		).subscribe(e => {
@@ -59,7 +66,7 @@ class Layout extends PureComponent {
 		<Banner>
 			
 			<LogoContainer>
-				<img src={logoImage} alt="logo" className={styles.BrandImage}/>
+				<img src={neonLogoImage} alt="logo" className={styles.BrandImage}/>
 			</LogoContainer>
 		</Banner>
 		{appBar}
@@ -67,7 +74,7 @@ class Layout extends PureComponent {
 			{this.props.children}
 		</Grid>
 		<div className={styles.Footer}>
-			<Copyright/> <Typography >Karol Wojtas</Typography>
+			<Copyright/> <Typography >Kluska Gdynia</Typography>
 		</div>
 	</div>
 )

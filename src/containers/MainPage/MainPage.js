@@ -7,6 +7,7 @@ import ImagePane from '../../components/Main/ImagePane/ImagePane'
 import MobileStepper from '@material-ui/core/MobileStepper';
 import pastaImg from '../../assets/main_floor.jpg'
 import floorImg from '../../assets/main_pasta.jpg'
+import neonImg from '../../assets/neon.jpg'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import IconButton from '@material-ui/core/IconButton'
@@ -25,13 +26,18 @@ class MainPage extends Component {
 		activeStep: 0,
 		prevStep: 0,
 		stepList: [
-			{id: 0, image: floorImg, text: 'info1' , header: 'O nas'},
-			{id: 1, image: pastaImg, text: 'info2', header: 'Kontakt'},
-			{id: 2, image: pastaImg, text: 'info3', header: 'Other'}
+			{id: 0, image: floorImg, text: ['Cześć!', 'Kluska pokazuje swój makaronowy pogląd na świat.', 
+				'Stawiamy na sezonowość produktów, dzięki której każdego tygodnia spotkacie w naszym menu tygodniową wkładkę z nowymi pozycjami!',
+				'Chwalimy siœ świeżymi makaronami z których przygotowywane są nasze dania!'] ,
+			 header: 'O nas'},
+			{id: 1, image: pastaImg, text: ['Cenimy sobie dobre śniadanka, dlatego teź codziennie rozpieszczamy Was świeżymi bajglami i omletami!',
+			'Nie lubimy nudy - chcemy zarażać Was energią, optymizmem i chęcią spędzania wspólnie wolnego czasu',
+			'Cenimy szczerość i otwartość - daj nam znać co robimy dobrze, a co warto zmienić. Jeżeli masz pomysł na sezonowy makaron - sprzedaj pomysł kucharzowi, zapewnw chętnie przygotuje coś dla Ciebie!',
+			'Dzięki, że jesteś!'],
+			 header: 'O nas C.D.'},
+			{id: 2, image: neonImg, text: ['Nasz adres:','ul. Abrahama 26 lok. 1 81-366 Gdynia', 'Telefon: 730 059 695'],
+			 header: 'Kontakt'}
 		]
-	}
-	componentDidMount(){
-		document.documentElement.style.setProperty('--border-image-url', `url(${borderImg})`)
 	}
 	handleClickNext = () => {
 		this.setState((prevState) => 
@@ -55,7 +61,8 @@ class MainPage extends Component {
 	render() {
 		const {maxSteps, activeStep, stepList, prevStep} = this.state
 		return (
-			<Grid container className={styles.RootContainer}>
+			<div className={styles.RootContainer}>
+			<Grid container >
 				<Grid item md={6} className={styles.ImagePaneContainer} >
 				<ImagePane
 					index={activeStep}
@@ -79,17 +86,15 @@ class MainPage extends Component {
 					/>			
 				</Grid>
 				<Grid item md={6} className={styles.InfoPaneContainer}>
-					<div className={styles.IconContainer}>
-						<Penne inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
-						<Farfalle inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
-						<Ravioli inner={darkAmberColor} outer={amberColor} className={styles.Icon}/>
-					</div>
 					<InfoPane 
 					prevStep={prevStep}
-					activeStep={activeStep} 
+					activeStep={activeStep}
+					handleChangeIndex={this.handleChangeIndex} 
 					stepList={stepList}/>
+					
 				</Grid>		
 			</Grid>
+			</div>
 		)
 	}
 }

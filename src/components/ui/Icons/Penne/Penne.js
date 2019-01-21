@@ -10,7 +10,7 @@ const Penne = props => {
     >
         <line stroke={props.inner} strokeWidth="8" x1="0" y2="20" x2="0" y2="80"/>
     </pattern>)
-    return (<svg viewBox='0 0 100 100' width='100' height='100' className={styles.Root} background={'transparent'}>
+    return (<svg viewBox='0 0 100 100' width='100' height='100' className={styles.Root} background={'transparent'} {...props.style}>
         <defs>
             {stripesPattern}
         </defs>

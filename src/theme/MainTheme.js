@@ -1,12 +1,15 @@
 import {createMuiTheme} from "@material-ui/core/styles";
 import amber from '@material-ui/core/colors/amber'
-import blueGrey from '@material-ui/core/colors/blueGrey'
 
 const mainTheme = createMuiTheme({
 	palette: {
 		type:'light',
 		primary: amber,
-		secondary: blueGrey,
+		secondary: {
+			main: '#f57c00',
+			light: '#ffad42',
+			dark: '#bb4d00'
+		},
 		background: {
 			default: 'transparent'
 		}
