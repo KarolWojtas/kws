@@ -7,9 +7,6 @@ jobs:
     - run:
         name: Setup environment
         command: npm install gh-pages
-    - test:
-        name: Run tests
-        command: npm test
     - deploy:
         name: Build and push to GithubPages
         command: npm run deploy
