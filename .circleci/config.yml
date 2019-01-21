@@ -5,9 +5,10 @@ jobs:
     - image: circleci/node:8
   working_directory: ~/repo
   steps:
+    - checkout
     - run:
-        name: Setup environment
-        command: npm install gh-pages
+        name: Install dependencies
+        command: npm install
     - deploy:
         name: Build and push to GithubPages
         command: npm run deploy
