@@ -2,8 +2,10 @@ version: 2
 jobs:
  build:
   branches:
-   ignore:
-    - gh-pages
+    only:
+     - master
+    ignore:
+     - gh-pages
   docker:
     - image: circleci/node:8
   working_directory: ~/repo
@@ -19,10 +21,16 @@ jobs:
     - save_cache:
         paths:
           - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}  
+        key: v1-dependencies-{{ checksum "package.json" }} 
+    - run:
+        name: Build
+        command: npm run build 
+    - run:
+        name: Test
+        command: npm test
     - deploy:
         name: Build and push to GithubPages
         command: | 
           git config --global user.email $GH_EMAIL
           git config --global user.name $GH_NAME
-          CI=false npm run deploy 
+          CI=false gh-pages -m "auto commit [ci skip]" -d build         
