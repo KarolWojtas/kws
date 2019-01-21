@@ -3,38 +3,18 @@ import Typography from '@material-ui/core/Typography';
 import posed, {PoseGroup} from 'react-pose'
 import styles from './InfoPane.module.css'
 import RootRef from '@material-ui/core/RootRef'
-import borderImg from '../../../assets/main_info_border.svg'
 import SwipeableViews from 'react-swipeable-views';
+import bgImage from '../../../assets/brick.png'
 
-const PosedDiv = posed.div({
-    enter: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            duration: 200,
-            type: 'spring',
-            mass: 0.5,
-            stiffness: 50,
-        },
-        staggerChildren: 500
-    },
-    exit: {
-        opacity: 0,
-        x: ({prevBigger}) =>  prevBigger ? '-50%' : '50%',
-        transition: {
-            type: 'tween',
-            duration: 100
-        }
-    }
-})
 const PosedTextDiv = posed.div({
-    enter: {
-        opacity:1 
-    },
-    exit: {
+    selected: {
+        opacity: 1
+    }, 
+    deselected: {
         opacity: 0
     }
 })
+
 const typographyTransitions = {
     enter: {
         opacity: 1
@@ -43,6 +23,16 @@ const typographyTransitions = {
         opacity: 0
     }
 }
+const PosedRootDiv = posed.div({
+    enter: {
+        opacity: 1,
+        beforeChildren: true
+    },
+    exit: {
+        opacity: 0
+    }
+})
+
 const PosedTypography = posed(React.forwardRef((props, ref) => (
     <RootRef rootRef={ref}>
         <Typography {...props}>{props.children}</Typography>
@@ -50,12 +40,11 @@ const PosedTypography = posed(React.forwardRef((props, ref) => (
 )))(typographyTransitions)
 
 const InfoPane = props => {
-    document.documentElement.style.setProperty('--border-image-url', `url(${borderImg})`)
-    
+    document.documentElement.style.setProperty('--bg-image', `url(${bgImage})`)
     const items = props.stepList.map(item => (
-        <PosedTextDiv
+        <PosedRootDiv
         key={item.id}
-        className={styles.TextContainer}
+        className={styles.InfoContainer}
         >
             <PosedTypography
                 key={'header'+item.id}
@@ -64,9 +53,12 @@ const InfoPane = props => {
                 color='secondary'   
                 className={styles.Header}
                 >{item.header}
-                </PosedTypography>
+            </PosedTypography>
                 
-            <PosedTextDiv className={styles.TextContainer}>
+            <PosedTextDiv className={styles.TextContainer}
+                key={'textDiv'+item.id}
+                pose={props.activeStep === item.id ? 'selected': 'deselected'}
+            >
                 {item.text.map((paragraph, ix) => (
                     <PosedTypography
                     key={'p'+ix}
@@ -75,9 +67,9 @@ const InfoPane = props => {
                     >
                         {paragraph}
                     </PosedTypography>  
-                ))}   
-            </PosedTextDiv>       
-        </PosedTextDiv>
+                ))}
+            </PosedTextDiv>   
+        </PosedRootDiv>
     ))
     return (
                 <SwipeableViews

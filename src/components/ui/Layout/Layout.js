@@ -37,7 +37,6 @@ class Layout extends PureComponent {
 		document.documentElement.style.setProperty('--wave-bg-sm', `url(${waveBgSm})`)
 
 		let offset = this.toolbar.current.offsetTop < 250 ? 300 : this.toolbar.current.offsetTop;
-		console.log(offset)
 		this.scroll$ = fromEvent(document, 'scroll').pipe(
 			map(e => e.target.scrollingElement.scrollTop)
 		).subscribe(e => {

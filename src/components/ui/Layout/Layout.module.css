@@ -8,11 +8,11 @@
     overflow: hidden;
     position: relative;
     background: #ccc;
+    
 }
 .BrandImage{
     border-radius: 20%;
     width: 300px;
-    /* box-shadow: 4px 4px 4px #ccc; */
 }
 
 .Content{

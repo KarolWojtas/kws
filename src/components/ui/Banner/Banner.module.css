@@ -1,14 +1,12 @@
 :root {
     --image-rot-x: 0deg;
     --image-rot-y: 0deg;
-    --bg-image: '';
 }
 
 .BannerContainer{
     height: 100%;
     width: 100%;
     display: flex;
-    background: var(--bg-image);
     align-items: center;
     justify-content: center;
     background-color: #333;

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1080px" height="1080px" viewBox="0 0 1080 1080" xml:space="preserve">
-     <path d="m 100 50 q -50 0 -50 50 v 0 390 q 0 50 -50 50 q 50 0 50 50 v 390 q 0 50 50 50" 
-     stroke="#FFC107" stroke-width="20" fill="none" stroke-linecap="round"/>
-     <path d="m 980 50 q 50 0 50 50 v 0 390 q 0 50 50 50 q -50 0 -50 50 v 390 q 0 50 -50 50" 
-     stroke="#FFC107" stroke-width="20" fill="none" stroke-linecap="round"/>
-</svg>
