@@ -1,14 +1,14 @@
 {
   "main.css": "/kws/static/css/main.2dd4e8c3.chunk.css",
-  "main.js": "/kws/static/js/main.358fb0fa.chunk.js",
-  "main.js.map": "/kws/static/js/main.358fb0fa.chunk.js.map",
+  "main.js": "/kws/static/js/main.be1877cb.chunk.js",
+  "main.js.map": "/kws/static/js/main.be1877cb.chunk.js.map",
   "static/css/1.b41c3cae.chunk.css": "/kws/static/css/1.b41c3cae.chunk.css",
   "static/js/1.eb5bfc17.chunk.js": "/kws/static/js/1.eb5bfc17.chunk.js",
   "static/js/1.eb5bfc17.chunk.js.map": "/kws/static/js/1.eb5bfc17.chunk.js.map",
   "runtime~main.js": "/kws/static/js/runtime~main.a66cce90.js",
   "runtime~main.js.map": "/kws/static/js/runtime~main.a66cce90.js.map",
   "static/media/main_info_border.svg": "/kws/static/media/main_info_border.7240c993.svg",
-  "static/media/neon-logo.svg": "/kws/static/media/neon-logo.7b0aa1b7.svg",
+  "static/media/neon-logo.svg": "/kws/static/media/neon-logo.1d2d3db0.svg",
   "static/media/wave-bg-lg.svg": "/kws/static/media/wave-bg-lg.af45660d.svg",
   "static/media/wave-bg-sm.svg": "/kws/static/media/wave-bg-sm.4f9ca0f4.svg",
   "static/media/main_pasta.jpg": "/kws/static/media/main_pasta.0d074919.jpg",
@@ -18,6 +18,6 @@
   "static/css/main.2dd4e8c3.chunk.css.map": "/kws/static/css/main.2dd4e8c3.chunk.css.map",
   "static/css/1.b41c3cae.chunk.css.map": "/kws/static/css/1.b41c3cae.chunk.css.map",
   "index.html": "/kws/index.html",
-  "precache-manifest.4aebe746be6833e5ff1ac549f5affe28.js": "/kws/precache-manifest.4aebe746be6833e5ff1ac549f5affe28.js",
+  "precache-manifest.75c2eeea20760de1b1e2a5e6c5536554.js": "/kws/precache-manifest.75c2eeea20760de1b1e2a5e6c5536554.js",
   "service-worker.js": "/kws/service-worker.js"
 }
