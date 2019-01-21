@@ -16,13 +16,10 @@ jobs:
     - save_cache:
         paths:
           - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-    - build:
-       name: Build project
-       command: npm run build  
+        key: v1-dependencies-{{ checksum "package.json" }}  
     - deploy:
         name: Build and push to GithubPages
         command: | 
           git config --global user.email $GH_EMAIL
           git config --global user.name $GH_NAME
-          npm run deploy
+          CI=false npm run deploy
