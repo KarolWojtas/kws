@@ -2,7 +2,7 @@
   "name": "kws",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://karolwojtas.github.io/",
+  "homepage": "https://karolwojtas.github.io/kws/",
   "dependencies": {
     "@aws-amplify/core": "^1.0.20",
     "@material-ui/core": "^3.6.1",
