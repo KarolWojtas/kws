@@ -1,7 +1,7 @@
 {
-  "main.css": "/kws/static/css/main.2dd4e8c3.chunk.css",
-  "main.js": "/kws/static/js/main.46be55ef.chunk.js",
-  "main.js.map": "/kws/static/js/main.46be55ef.chunk.js.map",
+  "main.css": "/kws/static/css/main.c24b8ba5.chunk.css",
+  "main.js": "/kws/static/js/main.c0742eeb.chunk.js",
+  "main.js.map": "/kws/static/js/main.c0742eeb.chunk.js.map",
   "static/css/1.b41c3cae.chunk.css": "/kws/static/css/1.b41c3cae.chunk.css",
   "static/js/1.eb5bfc17.chunk.js": "/kws/static/js/1.eb5bfc17.chunk.js",
   "static/js/1.eb5bfc17.chunk.js.map": "/kws/static/js/1.eb5bfc17.chunk.js.map",
@@ -15,9 +15,9 @@
   "static/media/neon.jpg": "/kws/static/media/neon.174e9d58.jpg",
   "static/media/logo.svg": "/kws/static/media/logo.3ce38763.svg",
   "static/media/main_floor.jpg": "/kws/static/media/main_floor.92903f81.jpg",
+  "static/css/main.c24b8ba5.chunk.css.map": "/kws/static/css/main.c24b8ba5.chunk.css.map",
   "static/css/1.b41c3cae.chunk.css.map": "/kws/static/css/1.b41c3cae.chunk.css.map",
-  "static/css/main.2dd4e8c3.chunk.css.map": "/kws/static/css/main.2dd4e8c3.chunk.css.map",
   "index.html": "/kws/index.html",
-  "precache-manifest.04f2f8ce9f3bc9c45de412d6fd40ade2.js": "/kws/precache-manifest.04f2f8ce9f3bc9c45de412d6fd40ade2.js",
+  "precache-manifest.917ea66220fe6056b6b8a7014b7e2283.js": "/kws/precache-manifest.917ea66220fe6056b6b8a7014b7e2283.js",
   "service-worker.js": "/kws/service-worker.js"
 }
