@@ -24,12 +24,12 @@ jobs:
         key: v1-dependencies-{{ checksum "package.json" }} 
     - run:
         name: Build
-        command: npm run build 
+        command: CI=false npm run build 
     - run:
         name: Test
-        command: npm test
+        command: CI=false npm run test
     - deploy:
-        name: Build and push to GithubPages
+        name: Push to GithubPages
         command: | 
           git config --global user.email $GH_EMAIL
           git config --global user.name $GH_NAME
