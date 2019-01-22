@@ -73,6 +73,7 @@ class Layout extends PureComponent {
 			{this.props.children}
 		</Grid>
 		<div className={styles.Footer}>
+			<img src={logoImage} alt='logo' />
 			<Copyright/> <Typography >Kluska Gdynia</Typography>
 		</div>
 	</div>

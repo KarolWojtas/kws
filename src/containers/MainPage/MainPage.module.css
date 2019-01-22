@@ -6,29 +6,19 @@
     margin: 0 8px 0 8px;
     max-width: 70vw;
 }
-.ImagePaneContainer{
+.ImagePaneContainer, .InfoPaneContainer{
+    padding: 16px;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 32px;
-    border-radius: 16px;
-    
 }
 .IconContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
-}
-.InfoPaneContainer{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 0 16px 0 16px;
-    
 }
 @media(max-width: 900px){
     .RootContainer{
@@ -37,10 +27,6 @@
     }
     .ImagePaneContainer{
         margin: auto;
-        padding: 0;
-       
-    }
-    .InfoPaneContainer{
-        border-image-width: 32px;
+        padding: 8px;
     }
 }

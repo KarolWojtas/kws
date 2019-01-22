@@ -1,35 +1,63 @@
-:root{
-    --bg-image: '';
+.RootContainer{
+    --border-rad: 16px;
+    --main-gradient-color: rgba(255, 132, 71, 0.3);
+    --accent-gradient-color: rgba(253,200,48, 0.3);
 }
 .RootContainer{
     padding: 8px;
     width: 100%;
-    background-image: var(--bg-image);
-    border-radius: 16px;
+    background-image: 
+    radial-gradient(farthest-side at bottom left,var(--main-gradient-color) 10%, var(--accent-gradient-color) 60%, transparent 100%);
+    border-radius: var(--border-rad);
 }
 .InfoContainer{
     width: 100%;
+    min-height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.HeaderContainer{
+    display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.FooterContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 8px 0;
+}
+.Text{
+    padding: 8px;
+}
+.Text::first-line{
+    text-decoration: underline rgb(253,200,48);
+    line-height: 1.5em;
+}
 .TextContainer{
     padding: 16px;
-    overflow-y: hidden;
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--border-rad);
+}
+.WaveDivider{
+    margin: 8px 0;
+    height: 2em;
+    width: 100%;
 }
 .Header{
-    border-bottom: 2px solid #FFECB3;
+    /* border-bottom: 2px solid #FFECB3; */
+    width: 100%;
+    border-radius: var(--border-rad);
 }
-.Text{
-    padding-bottom: 16px;
-}
-.Text::first-letter{
-    color: #666;
-    font-size: 2.5rem;
-}
+

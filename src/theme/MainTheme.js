@@ -28,6 +28,13 @@ const mainTheme = createMuiTheme({
 				 "Open Sans",'-apple-system','BlinkMacSystemFont', "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
 			].join(','),
 			fontSize: 20
+		},
+		body1: {
+			fontFamily: [
+				"Open Sans",'-apple-system','BlinkMacSystemFont', "Roboto", "Oxygen", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "sans-serif"
+		   ].join(','),
+		   fontWeight: 500,
+		   fontSize: 22
 		}
 	}
 })

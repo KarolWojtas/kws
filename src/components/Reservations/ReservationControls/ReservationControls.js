@@ -8,7 +8,7 @@ import styles from './ReservationControls.module.css'
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
-import Calendar from 'react-calendar'
+import Calendar from 'react-calendar/dist/entry.nostyle'
 import {format} from 'date-fns'
 import Grid from '@material-ui/core/Grid'
 import OpenHoursSelect from './OpenHoursSelect/OpenHoursSelect'
@@ -57,14 +57,13 @@ const reservationControls = React.forwardRef((props, ref) => {
                 open={props.isCalendarDialogOpen}
                 onClose={props.handleCloseCalendarDialog}
             >
-                <DialogContent>
+                <DialogContent className={styles.Calendar}>
                     <Calendar 
                     value={props.dateValue}
                     onChange={props.handleSetCalendarDate}
                     locale={'pl-PL'}
                     required
                     minDate={now}
-                    className={styles.Calendar}
                     />    
                 </DialogContent>
                 <DialogActions>

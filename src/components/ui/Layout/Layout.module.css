@@ -44,3 +44,7 @@
     align-items: center;
     padding: 0 16px 0 16px;
 }
+.Footer img{
+    height: 3em;
+    margin-right: 16px;
+}

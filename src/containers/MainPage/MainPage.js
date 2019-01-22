@@ -11,9 +11,7 @@ import neonImg from '../../assets/neon.jpg'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import IconButton from '@material-ui/core/IconButton'
-import Penne from '../../components/ui/Icons/Penne/Penne'
-import Farfalle from '../../components/ui/Icons/Farfalle/Farfalle'
-import Ravioli from '../../components/ui/Icons/Ravioli/Ravioli'
+
 
 const amberColor = '#FFC107'
 const lightAmberColor = '#FFECB3'
@@ -62,28 +60,6 @@ class MainPage extends Component {
 		return (
 			<div className={styles.RootContainer}>
 			<Grid container >
-				<Grid item md={6} className={styles.ImagePaneContainer} >
-				<ImagePane
-					index={activeStep}
-					items={stepList}
-					handleChangeIndex={this.handleChangeIndex}
-					/>
-					<MobileStepper 
-					steps={maxSteps}
-					activeStep={activeStep} 
-					position={'static'}
-					nextButton={
-						<IconButton onClick={this.handleClickNext}>
-							<NavigateNext fontSize='large'/>
-						</IconButton>
-					}
-					backButton = {
-						<IconButton onClick={this.handleClickPrev}>
-							<NavigateBefore fontSize='large'/>
-						</IconButton>
-					}
-					/>			
-				</Grid>
 				<Grid item md={6} className={styles.InfoPaneContainer}>
 					<InfoPane 
 					prevStep={prevStep}
@@ -91,7 +67,30 @@ class MainPage extends Component {
 					handleChangeIndex={this.handleChangeIndex} 
 					stepList={stepList}/>
 					
-				</Grid>		
+				</Grid>	
+				<Grid item md={6} className={styles.ImagePaneContainer} >
+					<MobileStepper 
+						steps={maxSteps}
+						activeStep={activeStep} 
+						position={'static'}
+						nextButton={
+							<IconButton onClick={this.handleClickNext}>
+								<NavigateNext fontSize='large'/>
+							</IconButton>
+						}
+						backButton = {
+							<IconButton onClick={this.handleClickPrev}>
+								<NavigateBefore fontSize='large'/>
+							</IconButton>
+						}
+						/>
+				<ImagePane
+					index={activeStep}
+					items={stepList}
+					handleChangeIndex={this.handleChangeIndex}
+					/>
+								
+				</Grid>	
 			</Grid>
 			</div>
 		)
