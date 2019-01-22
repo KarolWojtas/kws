@@ -9,6 +9,8 @@ import ReservationsPage from './containers/ReservationsPage/ReservationsPage'
 import posed, {PoseGroup} from 'react-pose'
 import {I18n} from 'aws-amplify'
 import {dict} from './assets/i18n/i18n'
+import {connect} from 'react-redux'
+import * as settingCreators from './store/actions/settingsActionCreators'
 import asyncComponent from './components/hoc/asyncComponent/AsyncComponent'
 
 
@@ -46,23 +48,26 @@ const darkAmberColor = '#FF8F00'
 class App extends PureComponent {
 
 	componentWillMount(){
-		I18n.setLanguage('pl')
+		I18n.setLanguage(this.props.lang)
 		I18n.putVocabularies( dict);
-		
 	}
+	handleChangeLanguage = language =>{
+		this.props.setLanguage(language)
+		I18n.setLanguage(language)
+	} 
 
 	render() {
 		return (
 		<div>
 			<MuiThemeProvider theme={theme} >
                 <CssBaseline />
-					<Layout>
+					<Layout handleChangeLanguage={this.handleChangeLanguage} activeLang={this.props.lang}>
 						<PoseGroup>
 							<RouteContainer key={this.props.location.key ? this.props.location.key : `${Math.ceil(Math.random() * 1000)}`}>
 								<Switch>
-									<Route component={MenuPage} path={'/menu'}/>
-									<Route component={ReservationsPage} path={'/reservations'}/>
-									<Route component={MainPage} exact path={'/'}/>
+									<Route component={props => <MenuPage {...props}/>} path={'/menu'}/>
+									<Route component={props => <ReservationsPage {...props}/>} path={'/reservations'}/>
+									<Route component={props => <MainPage {...props}/>} exact path={'/'}/>
 								</Switch>
 							</RouteContainer>
 						</PoseGroup>
@@ -73,5 +78,12 @@ class App extends PureComponent {
 		);
 	}
 }
-
-export default withRouter(App);
+const mapStateToProps = state => ({
+	lang: state.settings.lang
+})
+const mapDispatchToProps = dispatch => {
+	return {
+		setLanguage: lang => dispatch(settingCreators.setLanguage(lang))
+	}
+}
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

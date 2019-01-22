@@ -2,12 +2,14 @@
     --border-rad: 16px;
     --main-gradient-color: rgba(255, 132, 71, 0.3);
     --accent-gradient-color: rgba(253,200,48, 0.3);
+    --bg-img: ''
 }
 .RootContainer{
     padding: 8px;
     width: 100%;
-    background-image: 
-    radial-gradient(farthest-side at bottom left,var(--main-gradient-color) 10%, var(--accent-gradient-color) 60%, transparent 100%);
+    background-image: var(--bg-img);
+    /* background-image: 
+    radial-gradient(farthest-side at bottom left,var(--main-gradient-color) 10%, var(--accent-gradient-color) 60%, transparent 100%); */
     border-radius: var(--border-rad);
 }
 .InfoContainer{

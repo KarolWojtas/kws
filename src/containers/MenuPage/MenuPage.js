@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import styles from './MenuPage.module.css'
 import Grid from '@material-ui/core/Grid'
 import posed, {PoseGroup} from 'react-pose'
@@ -88,7 +88,7 @@ const PosedMenuCategory = posed(MenuCategory)({
 	}
 })
 
-class MenuPage extends Component{
+class MenuPage extends PureComponent{
 	state = {
 		selectedTab: {
 			tabNumber: 0,

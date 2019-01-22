@@ -1,4 +1,4 @@
-import React, { PureComponent} from 'react'
+import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import * as creators from '../../store/actions/actionCreators'
 import ReservationControls from '../../components/Reservations/ReservationControls/ReservationControls'
@@ -283,11 +283,11 @@ class ReservationsPage extends PureComponent{
 }
 const mapStateToProps = state =>{
     return {
-        tables: state.tables,
-        reservation: state.currentReservation,
-        openHours: state.openHours,
-        reservationPostStatus: state.reservationPostStatus,
-        loadedReservations: state.loadedReservations
+        tables: state.reservation.tables,
+        reservation: state.reservation.currentReservation,
+        openHours: state.reservation.openHours,
+        reservationPostStatus: state.reservation.reservationPostStatus,
+        loadedReservations: state.reservation.loadedReservations
     }
 }
 const mapDispatchToProps = dispatch => {

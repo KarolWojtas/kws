@@ -5,11 +5,8 @@ import styles from './InfoPane.module.css'
 import RootRef from '@material-ui/core/RootRef'
 import SwipeableViews from 'react-swipeable-views';
 import waveDivider from '../../../assets/wave-divider.svg'
-import spathetImg from '../../../assets/spaghet.svg'
+import spaghetImg from '../../../assets/spaghet.svg'
 import cardboardImg from '../../../assets/cardboard.svg'
-import Penne from '../../ui/Icons/Penne/Penne'
-import Farfalle from '../../ui/Icons/Farfalle/Farfalle'
-import Ravioli from '../../ui/Icons/Ravioli/Ravioli'
 
 const PosedTextDiv = posed.div({
     selected: {
@@ -43,11 +40,14 @@ const PosedTypography = posed(React.forwardRef((props, ref) => (
         <Typography {...props}>{props.children}</Typography>
     </RootRef>
 )))(typographyTransitions)
-const amberColor = '#FFC107'
-const lightAmberColor = '#FFECB3'
-const darkAmberColor = '#FF8F00'
 
 const InfoPane = props => {
+    document.documentElement.style.setProperty('--bg-img', `url(${spaghetImg})`)
+    let footerImg
+    switch(props.activeStep){
+        case 1: footerImg = cardboardImg; break;
+        default: footerImg = spaghetImg;
+    }
     const items = props.stepList.map(item => (
         <PosedRootDiv
         key={item.id}
@@ -79,13 +79,13 @@ const InfoPane = props => {
                         {paragraph}
                     </Typography> 
                 ))}
+                {item.extra || null}
                 <img src={waveDivider} className={styles.WaveDivider}/> 
             </PosedTextDiv>
+            
             <div className={styles.FooterContainer}>
-                    
-                    <img src={spathetImg} alt={'spaghetti'} height={100}/>
-                    <img src={cardboardImg} alt={'cardboard'} height={70}/>
-                </div> 
+                {<img src={footerImg} height={100}/>}
+            </div> 
         </PosedRootDiv>
     ))
     return (

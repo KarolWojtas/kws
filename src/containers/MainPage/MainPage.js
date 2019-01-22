@@ -11,6 +11,8 @@ import neonImg from '../../assets/neon.jpg'
 import NavigateNext from '@material-ui/icons/NavigateNext'
 import NavigateBefore from '@material-ui/icons/NavigateBefore'
 import IconButton from '@material-ui/core/IconButton'
+import {connect} from 'react-redux'
+import OpenHoursTable from '../../components/Main/InfoPane/OpenHoursTable/OpenHoursTable'
 
 
 const amberColor = '#FFC107'
@@ -33,7 +35,7 @@ class MainPage extends Component {
 			'Dzięki, że jesteś!'],
 			 header: 'O nas C.D.'},
 			{id: 2, image: neonImg, text: ['Nasz adres:','ul. Abrahama 26 lok. 1 81-366 Gdynia', 'Telefon: 730 059 695'],
-			 header: 'Kontakt'}
+			 header: 'Kontakt', extra: (<OpenHoursTable openHours={this.props.openHours}/>)}
 		]
 	}
 	handleClickNext = () => {
@@ -65,7 +67,9 @@ class MainPage extends Component {
 					prevStep={prevStep}
 					activeStep={activeStep}
 					handleChangeIndex={this.handleChangeIndex} 
-					stepList={stepList}/>
+					stepList={stepList}
+					openHours={this.props.openHours}
+					/>
 					
 				</Grid>	
 				<Grid item md={6} className={styles.ImagePaneContainer} >
@@ -96,5 +100,7 @@ class MainPage extends Component {
 		)
 	}
 }
-
-export default MainPage
+const mapStateToProps = state => ({
+	openHours: state.reservation.openHours
+})
+export default connect(mapStateToProps)(MainPage)

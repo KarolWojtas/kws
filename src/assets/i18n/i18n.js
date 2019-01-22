@@ -36,6 +36,16 @@ export const dict = {
         //MainPage
         'MainPage-menu-title': 'Menu',
         'MainPage-menu-content': 'Zobacz nasze menu',
+        'MainPage-table-head-day': 'Dzień tygodnia',
+        'MainPage-table-head-open': 'Od',
+        'MainPage-table-head-close': 'Do',
+        'MainPage-table-day-monday': 'Poniedziałek',
+        'MainPage-table-day-tuesday': 'Wtorek',
+        'MainPage-table-day-wednesday': 'Sroda',
+        'MainPage-table-day-thursday': 'Czwartek',
+        'MainPage-table-day-friday': 'Piątek',
+        'MainPage-table-day-saturday': 'Sobota',
+        'MainPage-table-day-sunday': 'Niedziela',
         //MenuPage
         //Kategorie
         'MenuPage-breakfast-category-title': 'Śniadania',

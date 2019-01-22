@@ -13,8 +13,10 @@ import {fromEvent} from 'rxjs'
 import {map} from 'rxjs/operators'
 import Copyright from '@material-ui/icons/Copyright'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import waveBgLg from '../../../assets/wave-bg-lg.svg'
 import waveBgSm from '../../../assets/wave-bg-sm.svg'
+import Language from '@material-ui/icons/Language'
 
 
 const LogoContainer = posed.div({
@@ -49,11 +51,21 @@ class Layout extends PureComponent {
 		this.scroll$.unsubscribe()
 	}
 	render(){
+		let langBtnText, langBtnClick;
+		const {activeLang, handleChangeLanguage} = this.props
+		if(activeLang == 'en'){
+			langBtnText = 'PL'
+			langBtnClick = () => handleChangeLanguage('pl')
+		} else {
+			langBtnText = 'EN'
+			langBtnClick = () => handleChangeLanguage('en')
+		}
 		const appBar = (
 			<RootRef rootRef={this.toolbar}>
 			<AppBar position={'static'} className={this.state.isSticky ? styles.Sticky : null}>
 				<Toolbar>
 					<Navigation></Navigation>
+					<Button onClick={langBtnClick} variant={'contained'} color={'secondary'}><Language />{langBtnText}</Button>
 				</Toolbar>
 			</AppBar>
 			</RootRef>
