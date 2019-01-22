@@ -68,11 +68,15 @@ class Navigation extends Component {
 							onClick={() => this.navigateLarge(item.url)}
 						>{item.text}</Button>
 					))}
+					{this.props.children}
+				</div>
+				<div className={styles.Menu}>
+					<IconButton  onClick={this.openDialog}>
+						<Menu/>
+					</IconButton>
+					{this.props.children}
 				</div>
 				
-				<IconButton className={styles.Menu} onClick={this.openDialog}>
-					<Menu/>
-				</IconButton>
 				<Dialog onBackdropClick={this.closeDialog}
 				        onClose={this.closeDialog} key={'dialog'}
 				        open={this.state.dialogOpened}

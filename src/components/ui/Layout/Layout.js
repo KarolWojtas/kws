@@ -64,8 +64,9 @@ class Layout extends PureComponent {
 			<RootRef rootRef={this.toolbar}>
 			<AppBar position={'static'} className={this.state.isSticky ? styles.Sticky : null}>
 				<Toolbar>
-					<Navigation></Navigation>
-					<Button onClick={langBtnClick} variant={'contained'} color={'secondary'}><Language />{langBtnText}</Button>
+					<Navigation>
+						<Button onClick={langBtnClick} variant={'outlined'} color={'secondary'}><Language />{langBtnText}</Button>
+					</Navigation>
 				</Toolbar>
 			</AppBar>
 			</RootRef>
