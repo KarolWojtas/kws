@@ -20,7 +20,6 @@ const postReservation = action$ => action$.ofType(actypes.POST_RESERVATION_EPIC)
     switchMap(res => from(api.post('/reservations', res))
     .pipe(
         catchError(err => of(creators.postReservationFail(err))),
-        tap(res => console.log(res)),
         map(_ => creators.postReservationSuccess())
     ))
 )

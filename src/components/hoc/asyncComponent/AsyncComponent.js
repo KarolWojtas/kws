@@ -1,18 +1,16 @@
-import React, {Component} from 'react'
-const asyncComponent = (importComponent) => {
-    return class extends Component{
+import React, {PureComponent} from 'react'
+const asyncComponent = (importComponent, props) => {
+    return class extends PureComponent{
         state = {
             component: null
         }
-        componentDidMount(){
-            importComponent()
-                .then(cmp => {
-                    this.setState({component: cmp.default})
-                })
+        async componentDidMount(){
+            const cmp = await importComponent();
+            this.setState({ component: cmp.default })
         }
         render(){
             const C = this.state.component
-            return C ? <C {...this.props}></C> : null;
+            return C ? <C {...props}></C> : <div>Lazy loading module...</div>;
         }
     }
 }

@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, Suspense} from 'react';
 import {Route, Switch, withRouter} from "react-router-dom";
 import Layout from './components/ui/Layout/Layout'
 import {MuiThemeProvider, CssBaseline} from "@material-ui/core";
@@ -39,12 +39,14 @@ const RouteContainer = posed.div({
 const amberColor = '#FFC107'
 const lightAmberColor = '#FFECB3'
 const darkAmberColor = '#FF8F00'
-// const asyncMenu = asyncComponent(() => {
-// 	return import ('./containers/MenuPage/MenuPage')
-// })
-// const asyncReservations = asyncComponent(() => {
-// 	return import ('./containers/ReservationsPage/ReservationsPage')
-// })
+const MenuPageWrapper = props => (
+	<React.Suspense
+		fallback={<p>Loading</p>}
+	>
+		{React.createElement(React.lazy(() => import('./containers/MenuPage/MenuPage')))}
+	</React.Suspense>
+)
+
 class App extends PureComponent {
 
 	componentWillMount(){
@@ -65,7 +67,7 @@ class App extends PureComponent {
 						<PoseGroup>
 							<RouteContainer key={this.props.location.key ? this.props.location.key : `${Math.ceil(Math.random() * 1000)}`}>
 								<Switch>
-									<Route component={props => <MenuPage {...props}/>} path={'/menu'}/>
+									<Route component={props => <MenuPageWrapper {...props}/>} path={'/menu'}/>
 									<Route component={props => <ReservationsPage {...props}/>} path={'/reservations'}/>
 									<Route component={props => <MainPage {...props}/>} exact path={'/'}/>
 								</Switch>

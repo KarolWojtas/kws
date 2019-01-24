@@ -14,7 +14,6 @@ import {map} from 'rxjs/operators'
 import Copyright from '@material-ui/icons/Copyright'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
-import waveBgLg from '../../../assets/wave-bg-lg.svg'
 import waveBgSm from '../../../assets/wave-bg-sm.svg'
 import Language from '@material-ui/icons/Language'
 
@@ -35,7 +34,6 @@ class Layout extends PureComponent {
 		isSticky: false
 	}
 	componentDidMount(){
-		document.documentElement.style.setProperty('--wave-bg-lg', `url(${waveBgLg})`)
 		document.documentElement.style.setProperty('--wave-bg-sm', `url(${waveBgSm})`)
 
 		let offset = this.toolbar.current.offsetTop < 250 ? 300 : this.toolbar.current.offsetTop;

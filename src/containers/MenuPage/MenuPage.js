@@ -136,9 +136,9 @@ class MenuPage extends PureComponent{
 							handleSwitchTabWithKey={this.handleSwitchTabWithKey}
 							tabNumber={this.state.selectedTab.tabNumber}
 						/>
-						<PoseGroup>
-						{tabContents}
-						</PoseGroup>
+							<PoseGroup>
+								{tabContents}
+							</PoseGroup>
 					</Grid>
 				</Grid>
 			</div>

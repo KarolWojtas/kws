@@ -169,11 +169,12 @@ class ReservationsPage extends PureComponent{
         const {activeStep} = this.state
         const {seats, ownerEmail, description, date} = this.props.reservation
         const captchaEl = (
-            <ReCAPTCHA
-                ref={this.reCaptchaRef} 
-                size="invisible"
-                sitekey={'6LcwUIcUAAAAACnSQfe1L6ZKUD56VO_zMq3CGXRV'}
-            />
+            // <ReCAPTCHA
+            //     ref={this.reCaptchaRef} 
+            //     size="invisible"
+            //     sitekey={'6LcwUIcUAAAAACnSQfe1L6ZKUD56VO_zMq3CGXRV'}
+            // />
+            null
         )
         let step = null
         let stepHeaderText = null

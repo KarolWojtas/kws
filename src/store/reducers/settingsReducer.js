@@ -10,7 +10,6 @@ const settingsReducer = (state = INIT_STATE, action) => {
     }
 }
 const setLanguage = (state, action) => {
-    console.log(action.lang)
     return {
         ...state,
         lang: action.lang
