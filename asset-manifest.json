@@ -1,16 +1,15 @@
 {
   "main.css": "/kws/static/css/main.6867d6f3.chunk.css",
-  "main.js": "/kws/static/js/main.87500304.chunk.js",
-  "main.js.map": "/kws/static/js/main.87500304.chunk.js.map",
-  "static/js/1.b2d24d4b.chunk.js": "/kws/static/js/1.b2d24d4b.chunk.js",
-  "static/js/1.b2d24d4b.chunk.js.map": "/kws/static/js/1.b2d24d4b.chunk.js.map",
+  "main.js": "/kws/static/js/main.7f57668e.chunk.js",
+  "main.js.map": "/kws/static/js/main.7f57668e.chunk.js.map",
+  "static/js/1.7c1e92f5.chunk.js": "/kws/static/js/1.7c1e92f5.chunk.js",
+  "static/js/1.7c1e92f5.chunk.js.map": "/kws/static/js/1.7c1e92f5.chunk.js.map",
   "runtime~main.js": "/kws/static/js/runtime~main.a66cce90.js",
   "runtime~main.js.map": "/kws/static/js/runtime~main.a66cce90.js.map",
   "static/media/main_floor.jpg": "/kws/static/media/main_floor.92903f81.jpg",
   "static/media/spaghet.svg": "/kws/static/media/spaghet.cfb6855b.svg",
   "static/media/logo.svg": "/kws/static/media/logo.3ce38763.svg",
   "static/media/neon-logo.svg": "/kws/static/media/neon-logo.cf72af88.svg",
-  "static/media/wave-bg-lg.svg": "/kws/static/media/wave-bg-lg.af45660d.svg",
   "static/media/wave-bg-sm.svg": "/kws/static/media/wave-bg-sm.4f9ca0f4.svg",
   "static/media/cardboard.svg": "/kws/static/media/cardboard.9707b5a9.svg",
   "static/media/main_pasta.jpg": "/kws/static/media/main_pasta.0d074919.jpg",
@@ -18,6 +17,6 @@
   "static/media/wave-divider.svg": "/kws/static/media/wave-divider.f0e0aa1f.svg",
   "static/css/main.6867d6f3.chunk.css.map": "/kws/static/css/main.6867d6f3.chunk.css.map",
   "index.html": "/kws/index.html",
-  "precache-manifest.fd95ec74b85a0eb227dc8c2c5699b4ec.js": "/kws/precache-manifest.fd95ec74b85a0eb227dc8c2c5699b4ec.js",
+  "precache-manifest.e17e8e3cdecf6ef5a454acb6e31f13c4.js": "/kws/precache-manifest.e17e8e3cdecf6ef5a454acb6e31f13c4.js",
   "service-worker.js": "/kws/service-worker.js"
 }
