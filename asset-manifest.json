@@ -1,7 +1,7 @@
 {
   "main.css": "/kws/static/css/main.6867d6f3.chunk.css",
-  "main.js": "/kws/static/js/main.7f57668e.chunk.js",
-  "main.js.map": "/kws/static/js/main.7f57668e.chunk.js.map",
+  "main.js": "/kws/static/js/main.4d6ccc00.chunk.js",
+  "main.js.map": "/kws/static/js/main.4d6ccc00.chunk.js.map",
   "static/js/1.7c1e92f5.chunk.js": "/kws/static/js/1.7c1e92f5.chunk.js",
   "static/js/1.7c1e92f5.chunk.js.map": "/kws/static/js/1.7c1e92f5.chunk.js.map",
   "runtime~main.js": "/kws/static/js/runtime~main.a66cce90.js",
@@ -17,6 +17,6 @@
   "static/media/wave-divider.svg": "/kws/static/media/wave-divider.f0e0aa1f.svg",
   "static/css/main.6867d6f3.chunk.css.map": "/kws/static/css/main.6867d6f3.chunk.css.map",
   "index.html": "/kws/index.html",
-  "precache-manifest.e17e8e3cdecf6ef5a454acb6e31f13c4.js": "/kws/precache-manifest.e17e8e3cdecf6ef5a454acb6e31f13c4.js",
+  "precache-manifest.49b31052a93605d9b713ba46f4ab3adc.js": "/kws/precache-manifest.49b31052a93605d9b713ba46f4ab3adc.js",
   "service-worker.js": "/kws/service-worker.js"
 }
