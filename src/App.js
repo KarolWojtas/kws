@@ -67,7 +67,7 @@ class App extends PureComponent {
 						<PoseGroup>
 							<RouteContainer key={this.props.location.key ? this.props.location.key : `${Math.ceil(Math.random() * 1000)}`}>
 								<Switch>
-									<Route component={props => <MenuPageWrapper {...props}/>} path={'/menu'}/>
+									<Route component={props => <MenuPage {...props}/>} path={'/menu'}/>
 									<Route component={props => <ReservationsPage {...props}/>} path={'/reservations'}/>
 									<Route component={props => <MainPage {...props}/>} exact path={'/'}/>
 								</Switch>
